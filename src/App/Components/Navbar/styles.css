@@ -1,3 +1,11 @@
-.hp {
-  padding: 20px 50px
+
+
+.btnText{
+  color: orange
+}
+
+@media only screen and (min-width: 1280px) {
+  .hp {
+    padding: 20px 100px
+  }
 }

@@ -1,12 +1,18 @@
 import React from 'react'
-import {Navbar, Nav, FormControl, NavDropdown, Form, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, Button, ButtonGroup, Container} from 'react-bootstrap'
+import PropTypes from 'prop-types';
 import './styles.css'
 
-const NavbarComponent = () => {
+const NavbarComponent = ({history}) => {
+
+  const goToPage = (page) => {
+    history.push(page)
+  }
 
   return (
-    <Navbar className="hp" bg="light" expand="lg">
-    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar bg="light" expand="lg">
+    <Container>
+    <Navbar.Brand className="cursor" onClick={() => goToPage('/')} >Horeka</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
@@ -20,13 +26,19 @@ const NavbarComponent = () => {
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
         </NavDropdown>
       </Nav>
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-success">Search</Button>
-      </Form>
+      <ButtonGroup>
+        <Button variant="outline-primary" onClick={() => goToPage('/login')} >Login</Button>
+        <Button className="btnText" onClick={() => goToPage('/register')} variant="outline-primary" >Register</Button>
+      </ButtonGroup>
+
     </Navbar.Collapse>
+    </Container>
   </Navbar>
   )
+}
+
+NavbarComponent.propTypes = {
+  history: PropTypes.object.isRequired
 }
 
 export default NavbarComponent

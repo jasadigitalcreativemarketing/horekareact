@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {baseURL} from '../../Config'
-import Railway from '../../../assets/railway-station.jpg'
-import TS from '../../../assets/train-station.jpg'
-
+import {withRouter} from 'react-router-dom'
+import NavbarComponent from '../../Components/Navbar';
+import { Container } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 class Home extends Component {
 
@@ -30,10 +31,20 @@ class Home extends Component {
   }
 
   render() {
+    const {history} = this.props
     return (
-      <div></div>
+      <div>
+        <NavbarComponent history={history} />
+        <Container>
+          <p>HALA</p>
+        </Container>
+      </div>
     )
   }
 }
 
-export default Home
+Home.propTypes = {
+  history: PropTypes.object
+}
+
+export default withRouter(Home)
