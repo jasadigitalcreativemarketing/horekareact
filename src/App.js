@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Home from './App/Containers/Home';
-import Navbar from './App/Components/Navbar';
 import 'react-bootstrap/dist/react-bootstrap.min';
 import Router from './App/Routers'
 
