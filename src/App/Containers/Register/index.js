@@ -3,8 +3,7 @@ import {Container} from 'react-bootstrap'
 import PropTypes from 'prop-types';
 import NavbarComponent from '../../Components/Navbar';
 import {withRouter} from 'react-router-dom'
-
-
+import './styles.css'
 class RegisterComponent extends Component {
   render() {
     const {history} = this.props
