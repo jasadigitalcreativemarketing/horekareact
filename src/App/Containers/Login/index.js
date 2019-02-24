@@ -40,10 +40,13 @@ class LoginComponent extends Component {
                     </Button>
                   </Col>
                 </Row>
-               
-                <Button variant="primary" type="submit">
-                  Submit
+              <Row className="center-text">
+                <Col  >
+                <Button className="btn-default-bg" size="lg" variant="primary" type="submit">
+                  Login
                 </Button>
+                </Col>
+              </Row>
               </Form>
               </div>
             </Col>
