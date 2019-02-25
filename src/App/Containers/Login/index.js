@@ -40,7 +40,7 @@ class LoginComponent extends Component {
     return (
       <div>
         <Navbar history={history} />
-        <Container>
+        <Container className="mt-4">
           <Row className="justify-content-md-center" >
             <Col className="box" md={6} lg={6} sm={12} >
               <div>

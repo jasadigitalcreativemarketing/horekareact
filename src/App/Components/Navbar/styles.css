@@ -9,3 +9,7 @@
     padding: 20px 100px
   }
 }
+
+.navbar svg {
+  font-size: 1.5rem;
+}

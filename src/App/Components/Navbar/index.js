@@ -1,7 +1,9 @@
 import React from 'react'
-import {Navbar, Nav, NavDropdown, Button, ButtonGroup, Container} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, Button, ButtonGroup, Container, Form, FormControl} from 'react-bootstrap'
 import PropTypes from 'prop-types';
 import './styles.css'
+import { faListAlt, faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavbarComponent = ({history}) => {
 
@@ -10,20 +12,37 @@ const NavbarComponent = ({history}) => {
   }
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
     <Container>
-    <Navbar.Brand className="cursor" onClick={() => goToPage('/')} >Horeka</Navbar.Brand>
+    <Navbar.Brand className="cursor" onClick={() => goToPage('/')}>HorekaStore</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-      </Nav>
+      <Form inline className="mr-auto">
+      <div className="input-group input-style">
+                <div className="input-group-prepend">
+                   <NavDropdown title="All" id="basic-nav-dropdown">
+                      <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                </div>
+                <FormControl type="text" placeholder="what are you looking for.." className="form-control form-style"/>
+                <div className="input-group-append">
+                  <button className="btn btn-group-text btn-group-style bg-main text-white text-600" type="submit" id="button-addon2">SEARCH</button>
+                </div>
+              </div>
+              </Form>
+                <div className="navbar-nav">
+                <Nav.Link href="#"><FontAwesomeIcon icon={faListAlt} /><span className="text-style text-600">DAILY MARKET LIST</span></Nav.Link>
+                <Nav.Link className="nav-item nav-link" href="#"><FontAwesomeIcon icon={faSearch} /></Nav.Link>
+              <Nav.Link className="nav-item nav-link" href="#"><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
+            </div>
       <ButtonGroup>
-        <Button variant="outline-primary" onClick={() => goToPage('/login')} >Login</Button>
-        <Button className="btnText" onClick={() => goToPage('/register')} variant="outline-primary" >Register</Button>
+        <Button className="btn-register text-center" onClick={() => goToPage('/register')} variant="">Register</Button>
+        <Button variant="" className="btn-login text-center" onClick={() => goToPage('/login')}>Login</Button>
       </ButtonGroup>
-
     </Navbar.Collapse>
     </Container>
   </Navbar>
