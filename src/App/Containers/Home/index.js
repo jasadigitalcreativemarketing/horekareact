@@ -30,7 +30,7 @@ class Home extends Component {
   }
 
   setupListCountry = (res) => {
-    console.log(res, "response")
+    console.log(res.response.countryList["country-list"] , "response")
   }
 
   render() {
