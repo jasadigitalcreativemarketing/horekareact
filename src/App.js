@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import 'react-bootstrap/dist/react-bootstrap.min';
 import Router from './App/Routers'
 

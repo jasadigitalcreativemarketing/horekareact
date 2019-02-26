@@ -1,0 +1,63 @@
+$primary: #ef8601 !default;
+$info: #48c6d0 !default;
+
+.register {
+h6 {
+    font-weight: 600;
+}
+.card {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border: none;
+}
+.card-header-tabs {
+    margin-right: unset;
+    margin-left: unset;
+    margin-bottom: unset;
+}
+.nav-tabs {
+    .nav-link {
+        padding: .8rem 1rem;
+        width: 49%;
+        text-align: center;
+        color: $primary;
+        border-radius: .5rem;
+        border: 2px solid $primary;
+        text-align: center;
+        font-weight: 600;
+        text-transform: uppercase;
+        &.active {
+            color: white;
+            border: 2px solid $primary;
+            background: $primary;
+        }
+        &:hover {
+            border-color: $primary;
+        }
+    }
+    #uncontrolled-tab-example-tab-seller {
+        margin-left: auto;
+    }
+}
+form {
+    margin-top: 20px;
+    .form-control {
+        padding: 10px;
+    }
+}
+small {
+    color: lightgray;
+}
+.btn-logreg {
+    padding: 5px 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background: $info;
+    border-color: $info;
+    display: block;
+}
+}
