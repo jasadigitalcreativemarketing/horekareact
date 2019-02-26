@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Navbar from '../../Components/Navbar'
+import FooterComponent from '../../Components/Footer'
 import {Container, Row, Col, Form, Button, Alert} from 'react-bootstrap'
 import './styles.css'
 import PropTypes from 'prop-types';
@@ -91,6 +92,7 @@ class LoginComponent extends Component {
             </Col>
           </Row>
         </Container>
+        <FooterComponent history={history} />
       </div>
     )
   }

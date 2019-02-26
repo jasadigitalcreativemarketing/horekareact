@@ -2,11 +2,16 @@ import React, {Component} from 'react';
 import {baseURL} from '../../Config'
 import {withRouter} from 'react-router-dom'
 import NavbarComponent from '../../Components/Navbar';
-import { Container, Jumbotron, Row, Col, NavDropdown, Nav } from 'react-bootstrap';
+import FooterComponent from '../../Components/Footer';
+import { Container, Jumbotron, Row, Col, NavDropdown, Nav, Carousel, CarouselItem } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import './styles.css'
+import './styles.scss'
 import { faListAlt, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+
 
 class Home extends Component {
 
@@ -38,8 +43,8 @@ class Home extends Component {
     return (
       <div>
         <NavbarComponent history={history} />
-        <Container>
           <Jumbotron fluid>
+          <Container>
             <Row className="white-box">
               <Col sm={3} className="pl-0 pr-0">
                 <div>
@@ -159,28 +164,386 @@ class Home extends Component {
                 </Nav> */}
               </Col>
               <Col sm={9} className="p-0">
-                <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                  <ol className="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  </ol>
-                  <div className="carousel-inner">
-                    <div className="carousel-item active">
-                      <img className="d-block curousel-box" src="./asset/img/railway-station.jpg" alt="First slide" />
+                <Carousel>
+                    <CarouselItem>
+                    <img className="d-block curousel-box" src="img/slide1.jpg" alt="First slide"/>
+                    </CarouselItem>
+                  <CarouselItem>
+                    <img className="d-block curousel-box" src="img/slide2.jpg" alt="Second slide" />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <img className="d-block curousel-box" src="img/slide3.jpg" alt="Third slide" />
+                  </CarouselItem>
+               </Carousel>
+              </Col>
+            </Row>
+            </Container>
+        </Jumbotron>
+                <section className="bg-light" id="request-box">
+          <div className="container">
+            <div className="row no-gutters white-box-2">
+              <div className="col-6"> 
+                <img src="img/request-img.jpeg" className="img-fluid request-image" alt="Responsive image" />
+              </div>
+              <div className="col-6">
+                <div className="container mt-5">
+                  <h2 className="text-second">One Request, Multiple qoutes</h2>
+                  <div className="row">
+                    <div className="col-7 pr-1">
+                      <div className="form-group request-input-style">
+                        <input type="text" className="form-control request-form-style" id aria-describedby placeholder="all category" />
+                      </div>
                     </div>
-                    <div className="carousel-item">
-                      <img className="d-block curousel-box" src="./asset/img/train-station.jpg" alt="Second slide" />
-                    </div>
-                    <div className="carousel-item">
-                      <img className="d-block curousel-box" src="./asset/img/departure-platform.jpg" alt="Third slide" />
+                    <div className="col-5 pl-1">
+                      <button type="submit" className="btn request-btn-style bg-main text-white">REQUEST ORDER</button>
                     </div>
                   </div>
                 </div>
-              </Col>
-            </Row>
-        </Jumbotron>
-        </Container>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-light" id="popular-tab">
+          <div className="container">
+            <div className="row pl-2 pr-2">
+              <div className="col">
+                <h4>Popular</h4>
+              </div>
+              <div className="col">
+                <label>
+                  <input type="radio" name="radio" id=""/>
+                  <div className="btn-radio">
+                    Food
+                  </div>
+                </label>
+              </div>
+              <div className="col">
+                  <label>
+                    <input type="radio" name="radio" id=""/>
+                    <div className="btn-radio">
+                      Spice
+                  </div>
+                  </label>
+                </div>
+              <div className="col">
+                <label>
+                  <input type="radio" name="radio" id="" />
+                  <div className="btn-radio">
+                    Kitchen Set
+                  </div>
+                </label>
+              </div>
+              <div className="col">
+                <label>
+                  <input type="radio" name="radio" id="" />
+                  <div className="btn-radio">
+                    Furniture
+                  </div>
+                </label>
+              </div>
+              <div className="col">
+                <label>
+                  <input type="radio" name="radio" id="" />
+                  <div className="btn-radio">
+                    Electronic
+                  </div>
+                </label>
+              </div>
+              <div className="col">
+                <label>
+                  <input type="radio" name="radio" id="" />
+                  <div className="btn-radio">
+                    Health
+                  </div>
+                </label>
+              </div>
+              <div className="col">
+                <label>
+                  <input type="radio" name="radio" id="" />
+                  <div className="btn-radio">
+                    Cleaning
+                  </div>
+                </label>
+              </div>
+              <div className="col">
+                <label>
+                  <input type="radio" name="radio" id="" />
+                  <div className="btn-radio">
+                    Stationery
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-light" id="popular-item">
+          <div className="container pt-2">
+           <OwlCarousel className="owl-theme popular-product" loop={true} margin={10} items={5} nav dots={false}>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie1.png" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie5.jpg" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div className="card card-box">
+                    <div className="card-body">
+                      <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />
+                      <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                      <p className="card-text text-center card-price">Rp 2.300</p>
+                      <div className="text-center card-rating">
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star checked" />
+                        <span className="fa fa-star" />
+                        <span className="fa fa-star" />
+                      </div>
+                      <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
+                    </div>
+                  </div>
+                </div>
+            </OwlCarousel >
+          </div>
+        </section>
+                <section className="bg-light" id="recomended-item">
+          <div className="container pt-2">
+            <div className="row no-gutters card-deck">
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie1.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie1.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <div className="card card-box">
+                  <div className="card-body">
+                    <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
+                    <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
+                    <p className="card-text text-center card-price">Rp 2.300</p>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-buy">BUY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-light" id="partner">
+          <div className="container pt-2 pb-2">
+            <div className="row no-gutters ">
+              <div className="col">
+                <h2>Our Partner</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* End Recomended */}
+        {/* Start Partners */}
+        <section className="bg-light" id="partner-box">
+          <div className="container pt-2 pb-2">
+            <div className="row no-gutter">
+              <div className="col-2 pr-1 pl-1"><img src="img/samsung.png" alt="samsung" className="img-box no-border-left" /></div>
+              <div className="col-2 pr-1 pl-1"><img src="img/samsung.png" alt="samsung" className="img-box" /></div>
+              <div className="col-2 pr-1 pl-1"><img src="img/samsung.png" alt="samsung" className="img-box" /></div>
+              <div className="col-2 pr-1 pl-1"><img src="img/samsung.png" alt="samsung" className="img-box" /></div>
+              <div className="col-2 pr-1 pl-1"><img src="img/samsung.png" alt="samsung" className="img-box" /></div>
+              <div className="col-2 pr-1 pl-1"><img src="img/samsung.png" alt="samsung" className="img-box" /></div>
+            </div>
+          </div>
+        </section>
+        <FooterComponent history={history} />
       </div>
     )
   }
