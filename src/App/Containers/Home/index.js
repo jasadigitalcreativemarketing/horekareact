@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {baseURL} from '../../Config'
 import {withRouter} from 'react-router-dom'
 import NavbarComponent from '../../Components/Navbar';
 import FooterComponent from '../../Components/Footer';
-import { Container, Jumbotron, Row, Col, NavDropdown, Nav, Carousel, CarouselItem } from 'react-bootstrap';
+import { Container, Jumbotron, Row, Col, Carousel, CarouselItem } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import './styles.scss'
 import { faListAlt, faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -19,24 +18,7 @@ class Home extends Component {
     list: []
   }
 
-  componentDidMount = () => {
-    this.fetchListCountry()
-  }
-
-  fetchListCountry = () => {
-    const url = `${baseURL}/Horeka/rest/HorekaStoreService/getCountry`
-    const headers = {
-      "Content-Type": "application/json"
-    }
-    fetch(url, {
-      headers,
-      method: 'post'
-    }).then((res) => res.json()).then(res => this.setupListCountry(res)).catch((e) => console.log(e))
-  }
-
-  setupListCountry = (res) => {
-    console.log(res.response.countryList["country-list"] , "response")
-  }
+ 
 
   render() {
     const {history} = this.props
@@ -279,7 +261,7 @@ class Home extends Component {
         <section className="bg-light" id="popular-item">
           <div className="container pt-2">
            <OwlCarousel className="owl-theme popular-product" loop={true} margin={10} items={5} nav dots={false}>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie1.png" alt="Card image cap" />
@@ -296,7 +278,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
@@ -313,7 +295,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
@@ -330,7 +312,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />
@@ -347,7 +329,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie5.jpg" alt="Card image cap" />
@@ -364,7 +346,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
@@ -381,7 +363,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
@@ -398,7 +380,7 @@ class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="item">
+                <div className="item">
                   <div className="card card-box">
                     <div className="card-body">
                       <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />

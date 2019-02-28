@@ -1,14 +1,8 @@
 import React from 'react'
-import {Navbar, Nav, NavDropdown, Button, ButtonGroup, Container, Form, FormControl} from 'react-bootstrap'
 import PropTypes from 'prop-types';
-import { faListAlt, faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const FooterComponent = ({history}) => {
+const FooterComponent = () => {
 
-  const goToPage = (page) => {
-    history.push(page)
-  }
 
   return (
     <footer>
