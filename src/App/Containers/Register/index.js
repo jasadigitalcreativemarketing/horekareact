@@ -101,11 +101,13 @@ class RegisterComponent extends Component {
   }
 
   setupListCountry = (res) => {
-    this.setState({countryList: res.response.countryList["country-list"]})
+    console.log(res.response.countryList["country-List"], "MOMO")
+    this.setState({countryList: res.response.countryList["country-List"]})
   }
 
   selectCountryHandler = (event) => {
     const {value} = event.target
+    console.log(value, "value")
     this.setState({countryCode: value})
     
   }
@@ -129,11 +131,14 @@ class RegisterComponent extends Component {
   }
 
   setupProvince = (res) => {
-    this.setState({provinceList: res.response.tRegion["t-region"]})
+    console.log(res, "MOMi")
+    this.setState({provinceList: res.response.tRegion["t-Region"]})
   }
   
   selectProvinceHandler = (event) => {
     const {value} = event.target
+    console.log(value, "LOPA")
+
     const a = value.indexOf(",")
     const b = value.slice(a + 1)
     const c = value.slice(0, a)
@@ -162,7 +167,7 @@ class RegisterComponent extends Component {
   }
 
   setupCity = (res) => {
-    this.setState({cityList: res.response.tCity["t-city"]})
+    this.setState({cityList: res.response.tCity["t-City"]})
   }
 
   selectCityHandler = (event) => {
@@ -194,13 +199,15 @@ class RegisterComponent extends Component {
   }
 
   setupPostalCode = (res) => {
-    this.setState({postalCodeList: res.response.zipcodeList["zipcode-list"]})
+    console.log("PSTCODE", res)
+    this.setState({postalCodeList: res.response.zipcodeList["zipcode-List"]})
   }
 
 
   render() {
     const {history} = this.props
     const {countryList, provinceList, cityList, postalCodeList} = this.state
+    console.log("MAMAMIA", countryList)
     return (
       <div>
         <NavbarComponent history={history} />
@@ -272,8 +279,8 @@ class RegisterComponent extends Component {
                   <Form.Label>Country</Form.Label>
                   <Form.Control onChange={this.selectCountryHandler} as="select">  
                     <option>Choose...</option>
-                    {countryList.map((x, index) => (
-                      <option value={x["country-code"]}  key={index} > {x["country-name"]} </option>
+                    {countryList && countryList.map((x, index) => (
+                      <option value={x.countryCode}  key={index} > {x.countryName} </option>
                     ))}
                   </Form.Control>
                 </Form.Group>
@@ -283,7 +290,7 @@ class RegisterComponent extends Component {
                   <Form.Label>Province</Form.Label>
                     <Form.Control onChange={this.selectProvinceHandler} as="select">
                     <option>Choose...</option>
-                    {provinceList.map((x, index) => (
+                    { provinceList && provinceList.map((x, index) => (
                        <option value={[x["region-number"], x["island-number"]]} key={index} > {x["region-name"]} </option>
                     ))}
                     </Form.Control>
@@ -292,7 +299,7 @@ class RegisterComponent extends Component {
                   <Form.Label>City</Form.Label>
                     <Form.Control onChange={this.selectCityHandler} as="select">
                     <option>Choose...</option>
-                    {cityList.map((x, index) => (
+                    {cityList && cityList.map((x, index) => (
                       <option value={[x.cityNo, x.regionNo]} key={index} > {x.cityName} </option>
                     ))}
                     </Form.Control>
@@ -312,7 +319,7 @@ class RegisterComponent extends Component {
                   <Form.Label>Zipcode</Form.Label>
                     <Form.Control as="select">
                     <option>Choose...</option>
-                    {postalCodeList.map((x, index) => (
+                    {postalCodeList && postalCodeList.map((x, index) => (
                       <option value={x["postal-code"]} key={index} > {x["postal-code"]} </option>
                     ))}
                     </Form.Control>
