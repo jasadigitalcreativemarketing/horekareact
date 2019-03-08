@@ -29,7 +29,10 @@ class RegisterComponent extends Component {
     cityList: [],
     cityNo:null,
     regionNo: null,
-    postalCodeList: []
+    postalCodeList: [],
+    phone: null,
+    zipCode:null,
+    message: null,
   }
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -172,6 +175,7 @@ class RegisterComponent extends Component {
 
   selectCityHandler = (event) => {
     const {value} = event.target
+    console.log(value, "MAMAN")
     const a = value.indexOf(",")
     const b = value.slice(a + 1)
     const c = value.slice(0, a)
@@ -201,6 +205,49 @@ class RegisterComponent extends Component {
   setupPostalCode = (res) => {
     console.log("PSTCODE", res)
     this.setState({postalCodeList: res.response.zipcodeList["zipcode-List"]})
+  }
+
+  selectPostalCode = (event) => {
+    const {value} = event.target
+    console.log(event.target.value, "POSTAL NIH")
+    this.setState({zipCode: value })
+  }
+
+  registerBuyer = () => {
+    const url = `${baseURL}/Horeka/rest/HorekaStoreService/storeRegister`
+    const {history} = this.props
+    const body = {
+      "request": {
+        "userType": 1,
+        "firstName": this.state.firstName,
+        "lastName": this.state.lastName,
+        "email": this.state.email,
+        "mobileNo": this.state.phone,
+        "password": this.state.password,
+        "companyName": this.state.compName,
+        "companyPhone": this.state.phoneCompany,
+        "companyAddress": this.state.address,
+        "taxId": this.state.NPWP,
+        "countryCode": this.state.countryCode,
+        "cityNumber": this.state.cityNo,
+        "zipcode": this.state.zipCode
+      }
+    }
+
+    const headers = {
+      "Content-Type" : "application/json"
+    }
+
+    fetch(url, {
+      method: 'post',
+      body: JSON.stringify(body),
+      headers
+    }).then((res) => res.json()).then((data) =>  {
+      console.log(data, "data Register")
+      this.setState({message: data.response.resultStr})
+    }).catch((e) => {
+      console.log(e)
+    })
   }
 
 
@@ -317,7 +364,7 @@ class RegisterComponent extends Component {
                   </Col>
                   <Col>
                   <Form.Label>Zipcode</Form.Label>
-                    <Form.Control as="select">
+                    <Form.Control onChange={this.selectPostalCode} as="select">
                     <option>Choose...</option>
                     {postalCodeList && postalCodeList.map((x, index) => (
                       <option value={x["postal-code"]} key={index} > {x["postal-code"]} </option>
@@ -326,9 +373,12 @@ class RegisterComponent extends Component {
                   </Col>
                 </Form.Row>
                 </Form.Group>
-                <Button variant="primary" className="btn-logreg mt-5 mb-5" type="submit">
+                <Button onClick={this.registerBuyer} variant="primary" className="btn-logreg mt-5 mb-5" >
                   Register
                 </Button>
+                {this.state.message && (
+                  <p> {this.state.message} </p>
+                )}
               </Form>
               <hr></hr>
               <p>If you have a account, please <a>login here</a></p>
