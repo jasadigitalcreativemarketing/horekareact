@@ -30,7 +30,7 @@ const NavbarComponent = ({history}) => {
                 </div>
                 <FormControl type="text" placeholder="what are you looking for.." className="form-control form-style"/>
                 <div className="input-group-append">
-                  <button className="btn btn-group-text btn-group-style bg-main text-white text-600" type="submit" id="button-addon2">SEARCH</button>
+                  <button onClick={() => goToPage('/searchresult')} className="btn btn-group-text btn-group-style bg-main text-white text-600" type="submit" id="button-addon2">SEARCH</button>
                 </div>
               </div>
               </Form>
