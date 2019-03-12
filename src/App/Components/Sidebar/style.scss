@@ -1,0 +1,84 @@
+.sidebar {
+.card {
+    border-radius: .3rem;
+    border: 0;
+    .card-body {
+        border: 2px solid #ebebeb;
+        margin: 10px;
+        border-radius: .5rem;
+        padding: 1rem;
+    }
+    .form-control {
+        border: 2px solid #ebebeb;
+        border-radius: .5rem;
+        &::placeholder {
+            font-style: italic;
+            color: #ebebeb;
+            font-size: 15px;
+        }
+    }
+    .nav-link {
+        padding: 0;
+        color: #5f5f5f;
+        font-size: 14px;
+    }
+    .dropdown-menu {
+        position: relative !important;
+        will-change: unset !important;
+        top: unset !important;
+        left: unset !important;
+        transform: unset !important;
+        border: 0;
+        padding: .25rem;
+    }
+    .dropdown-item {
+        color: #5f5f5f;
+        font-size: 14px;
+        padding: .25rem .5rem;
+        width: 100%;
+        &:hover {
+            background: unset;
+            color: #48c6d0;
+        }
+        // &::after {
+        //     display: inline-block;
+        //     vertical-align: .255em;
+        //     content: "";
+        //     border-top: .3em solid;
+        //     border-right: .3em solid transparent;
+        //     border-bottom: 0;
+        //     border-left: .3em solid transparent;
+        //     float: right;
+        //     margin-top: 8px;
+        //     color: #48c6d0;
+        // }
+    }
+    .dropdown-toggle {
+        &::after {
+            float: right;
+            margin-top: 8px;
+            color: #48c6d0;
+        }
+    }
+    h5 {
+        margin: .25rem .5rem .5rem .7rem;
+    }
+    }
+    .form-group {
+        margin: 0rem .7rem 0rem .7rem;
+        .input-group {
+        .form-control {
+            border-radius: 0px .5rem .5rem 0px !important;
+        }
+        .input-group-prepend {
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+            background: #ebebeb;
+            border: 2px solid #ebebeb;
+        }
+        .input-group-text {
+            border: unset;  
+        }
+    }
+    }
+}

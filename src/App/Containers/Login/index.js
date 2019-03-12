@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Navbar from '../../Components/Navbar'
 import FooterComponent from '../../Components/Footer'
-import {Container, Row, Col, Form, Button, Alert} from 'react-bootstrap'
-import './styles.css'
+import {Container, Row, Col, Form, Button, Alert, Card} from 'react-bootstrap'
+import './styles.scss'
 import PropTypes from 'prop-types';
 import {baseURL} from '../../Config'
 
@@ -72,13 +72,13 @@ class LoginComponent extends Component {
     return (
       <div>
         <Navbar history={history} />
-        <Container className="mt-4">
-          <Row className="justify-content-md-center" >
-            <Col className="box" md={6} lg={6} sm={12} >
+        <Container className="mt-4 login">
+            <Card>
+              <Card.Body>
               <div>
                 <h4>Login</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur Ea aliquam, et quae ipsa. 
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <small>Lorem ipsum dolor, sit amet consectetur Ea aliquam, et quae ipsa. 
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.</small>
               </div>
               <div className="mt-10" >
               {this.state.success === false && (
@@ -94,11 +94,11 @@ class LoginComponent extends Component {
               <Form>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Username or Email</Form.Label>
-                  <Form.Control onChange={this.onInputEmail} type="email" placeholder="Enter email" />
+                  <Form.Control onChange={this.onInputEmail} type="email" placeholder="" />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control onChange={this.onInputPassword} type="password" placeholder="Password" />
+                  <Form.Control onChange={this.onInputPassword} type="password" placeholder="" />
                 </Form.Group>
                 <Row>
                   <Col className="remember-me" md={6} lg={6} >
@@ -106,7 +106,7 @@ class LoginComponent extends Component {
                   <Form.Check type="checkbox" label="Remember Me" />
                   </Form.Group>
                   </Col>
-                  <Col md={6} lg={6} className="right-text" >
+                  <Col md={6} lg={6} className="text-right pr-0" >
                     <Button type="button" variant="link" >
                     Forget Password
                     </Button>
@@ -114,19 +114,19 @@ class LoginComponent extends Component {
                 </Row>
               <Row className="center-text">
                 <Col  >
-                <Button onClick={this.onSubmit} className="btn-default-bg" size="lg" variant="primary">
+                <Button onClick={this.onSubmit} className="btn-logreg mt-2 mb-3" size="lg" variant="primary">
                   Login
                 </Button>
                 </Col>
               </Row>
               </Form>
+              <hr></hr>
               </div>
-              <div className="divider mt-20"/>
               <div className="mt-20" >
-              <p className="small-text" >If you doesn't have a account please <Button onClick={() => this.goToPage('/register')} variant="link" className="checked no-padding"  >Register Here</Button></p> 
+              <p>If you doesn't have a account, please <Button onClick={() => this.goToPage('/register')} variant="link" className="checked p-0 p-font m-0 va-unset">register here</Button></p>
               </div>
-            </Col>
-          </Row>
+              </Card.Body>
+              </Card>
         </Container>
         <FooterComponent history={history} />
       </div>
