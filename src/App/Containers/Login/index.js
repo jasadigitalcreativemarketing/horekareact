@@ -4,11 +4,15 @@ import FooterComponent from '../../Components/Footer'
 import {Container, Row, Col, Form, Button, Alert} from 'react-bootstrap'
 import './styles.css'
 import PropTypes from 'prop-types';
+import {baseURL} from '../../Config'
+
 class LoginComponent extends Component {
 
   state = {
     password: null,
     email: null,
+    success: null,
+    message:null
   }
 
   onInputPassword = (event) => {
@@ -21,11 +25,37 @@ class LoginComponent extends Component {
     this.setState({email: value})
   }
 
+  loginHandler = () => {
+    const url = `${baseURL}/Horeka/rest/HorekaStoreService/userLogin`
+    const headers = {
+      "Content-Type": "application/json"
+    }
+    const body = {
+      request: {
+        username: this.state.email,
+        password: this.state.password
+      }
+    }
+    fetch(url, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body)
+    }).then((data) => data.json()).then((res) => this.setupLogin(res)).catch((e) => console.log(e))
+  }
+
+  setupLogin = (res) => {
+    if(res.response.errCode === 200) {
+      this.setState({success: true, message: res.response.companyID })
+      return
+    }
+    this.setState({success: false})
+  }
+
   onSubmit = () => {
     const {email, password} = this.state
     const available = email && password
     if(available) {
-      this.setState({success: true})
+      this.loginHandler()
     } else if(!available) {
       this.setState({error: true})
     }
@@ -38,6 +68,7 @@ class LoginComponent extends Component {
 
   render() {
     const {history} = this.props
+    console.log("NANI", this.state)
     return (
       <div>
         <Navbar history={history} />
@@ -50,10 +81,15 @@ class LoginComponent extends Component {
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
               </div>
               <div className="mt-10" >
-              {this.state.error && (
+              {this.state.success === false && (
                 <Alert variant="danger" >
-                  Error
+                  Please check your username and password
                 </Alert>
+              )}
+              {this.state.success && (
+                 <Alert variant="success" >
+                Login Success
+               </Alert>
               )}
               <Form>
                 <Form.Group controlId="formBasicEmail">
