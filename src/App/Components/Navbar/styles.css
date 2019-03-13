@@ -13,3 +13,9 @@
 .navbar svg {
   font-size: 1.5rem;
 }
+.btn-register {
+  text-transform: uppercase;
+}
+.btn-login {
+  text-transform: uppercase;
+}

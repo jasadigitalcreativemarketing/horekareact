@@ -4,6 +4,7 @@ import Home from '../Containers/Home'
 import LoginComponent from '../Containers/Login';
 import RegisterComponent from '../Containers/Register';
 import SearchResult from '../Containers/SearchResult';
+import SearchResultRev from '../Containers/SearchResultRev';
 
 const MainRouter = () => (
   <Router>
@@ -12,6 +13,7 @@ const MainRouter = () => (
     <Route path="/login" component={LoginComponent} />
     <Route path="/register" component={RegisterComponent} />
     <Route path="/searchresult" component={SearchResult} />
+    <Route path="/searchresultrev" component={SearchResultRev} />
     </div>
   </Router>
 )

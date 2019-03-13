@@ -31,3 +31,12 @@
     background-color: #f18600;
     border-color: #f18600;
   }
+
+.btn-info {
+  text-transform: uppercase;
+  background-color: $info !important;
+  border-color: $info !important;
+  font-size: small;
+  padding: .6rem 2.5rem;
+  font-weight: 600;
+}

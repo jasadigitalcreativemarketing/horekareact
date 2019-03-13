@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavbarComponent from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import Sidebar from '../../Components/Sidebar';
-import {Navbar, Nav, NavDropdown, Row, Col, Card, Container, Form, FormControl, CardImg} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, Row, Col, Card, Container, Form, FormControl, CardImg, Button} from 'react-bootstrap'
 import './style.scss'
 import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -47,7 +47,11 @@ class SearchResult extends Component {
                     </div>
                     <div className="shop-wrapper">
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <a href="/searchresultrev"><Button className="" size="sm" variant="info">view</Button></a>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -59,7 +63,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <a href="/searchresultrev"><Button className="" size="sm" variant="info">view</Button></a>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -71,7 +79,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -83,7 +95,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -95,7 +111,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -107,7 +127,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -119,7 +143,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -131,7 +159,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -143,7 +175,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -155,7 +191,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -167,7 +207,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -179,7 +223,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -191,7 +239,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -203,7 +255,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
@@ -215,7 +271,11 @@ class SearchResult extends Component {
                         </Card.Body>
                     </Card>
                     <Card className="shop-item">
+                    <div className="img-product">
                         <CardImg variant="top" src="img/wortel.jpg"/>
+                        <div className="img-overlay"></div>
+                        <Button className="" size="sm" variant="info">view</Button>
+                    </div>
                         <Card.Body>
                             <Card.Title>Wortel</Card.Title>
                             <Card.Text>
