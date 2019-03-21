@@ -1,0 +1,103 @@
+.dml-page {
+    label {
+        margin-bottom: .3rem;
+    }
+    .d-flex {
+        align-items: center;
+    }
+    .form-control {
+        height: 35px;
+        padding: .1rem .75rem;
+        width: 120px;
+        color: #CFCFCF;
+        border: 2px solid #ced4da;
+        border-radius: .4rem;
+        &::placeholder {
+            color: #CFCFCF;
+        }
+    }
+    .search {
+        .form-control {
+            width: 250px;
+        }
+    }
+    .table-responsive {
+        border: 2px solid #C5C5C5;
+        border-radius: 10px;
+    }
+    .table {
+        margin-bottom: 0px;
+    }
+    .table td, .table th {
+        vertical-align: middle;
+        border-top: none;
+        .form-control {
+            width: auto;
+        }
+    }
+    .pagination {
+        justify-content: flex-end;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        .page-link {
+            border: none;
+            color: #C5C5C5;
+            background-color: unset;
+            &:hover {
+                color: #48c6d0;
+                background-color: unset; 
+            }
+            &:focus {
+                box-shadow: unset;
+            }
+        }
+        .page-item {
+            &.active {
+                .page-link {
+                    background-color: unset !important;
+                    color: #48c6d0;
+                }
+            }
+        }
+        .page-item {
+            &:first-child {
+                .page-link {
+                    background-color: #ef8601;
+                    border-radius: .25rem;
+                    color: white;
+                }
+            }
+            &:last-child {
+                .page-link {
+                    background-color: #ef8601;
+                    border-radius: .25rem;
+                    color: white;
+                }
+            }
+        }
+    }
+    // .sc-ckVGcZ {
+    //     header {
+    //         display: none;
+    //     }
+    // }
+    // .bTnnmE {
+    //     border: 2px solid #C5C5C5;
+    //     border-radius: 10px;
+    // }
+    // .bojDWV {
+    //     border-bottom: 1px solid #C5C5C5;
+    // }
+    // .IELxV {
+    //     border-top-color: #C5C5C5;
+    // }
+    // .hTSrJn {
+    //     border-top: 0px;
+    // }
+    // .isKPrB {
+    //     display: none;
+    // }
+    // .gCeWql {
+    //     display: none;
+    // }
+}

@@ -1,7 +1,7 @@
 $primary: #ef8601 !default;
 $info: #48c6d0 !default;
 
-
+.searchresultrev {
 a {
     &:hover {
         text-decoration: unset;
@@ -89,4 +89,5 @@ svg {
           }
       }
   }
+}
 }

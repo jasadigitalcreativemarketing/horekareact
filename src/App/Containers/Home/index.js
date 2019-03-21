@@ -267,13 +267,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie1.png" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>
@@ -284,13 +277,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>
@@ -301,13 +287,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>
@@ -318,13 +297,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>
@@ -335,13 +307,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie5.jpg" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>
@@ -352,13 +317,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie3.png" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>
@@ -369,13 +327,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie2.png" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>
@@ -386,13 +337,6 @@ class Home extends Component {
                       <img className="card-img-top" src="img/indomie4.png" alt="Card image cap" />
                       <h6 className="card-subtitle text-center card-text-style">Indomie Rasa Soto</h6>
                       <p className="card-text text-center card-price">Rp 2.300</p>
-                      <div className="text-center card-rating">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
                       <p className="card-text text-center card-shop-name">Abc 1234 Shop</p>
                     </div>
                   </div>

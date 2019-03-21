@@ -20,7 +20,7 @@ class SearchResultRev extends Component {
         return (
             <div>
                 <NavbarComponent history={history} />
-                <Container className="mt-5">
+                <Container className="mt-5 searchresultrev">
                 <a href="/searchresult"><p><FontAwesomeIcon icon={faChevronLeft} /> <span className="text-dark-light ml-2">BACK</span></p></a>
                     <Row className="mb-5">
                         <Col md={6}>

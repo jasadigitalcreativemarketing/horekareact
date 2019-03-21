@@ -14,7 +14,7 @@ const NavbarComponent = ({history}) => {
   return (
     <Navbar expand="lg">
     <Container>
-    <Navbar.Brand className="cursor" onClick={() => goToPage('/')}>HorekaStore</Navbar.Brand>
+    <Navbar.Brand className="cursor-pointer" onClick={() => goToPage('/')}>HorekaStore</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Form inline className="mr-auto">
@@ -35,7 +35,7 @@ const NavbarComponent = ({history}) => {
               </div>
               </Form>
                 <div className="navbar-nav">
-                <Nav.Link href="#"><FontAwesomeIcon icon={faListAlt} /><span className="text-style text-600">DAILY MARKET LIST</span></Nav.Link>
+                <Nav.Link className="cursor-pointer" onClick={() => goToPage('/dml')}><FontAwesomeIcon icon={faListAlt} /><span className="text-style text-600">DAILY MARKET LIST</span></Nav.Link>
                 <Nav.Link className="nav-item nav-link" href="#"><FontAwesomeIcon icon={faSearch} /></Nav.Link>
               <Nav.Link className="nav-item nav-link" href="#"><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
             </div>
