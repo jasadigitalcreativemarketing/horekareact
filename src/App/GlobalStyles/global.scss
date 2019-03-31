@@ -370,26 +370,6 @@ input[type="search"]::placeholder {
   font-size: 13px;
 }
 
-.request-form-style {
-  margin-top: 5px;
-  margin-right: 4px;
-  /* color: rgb(184, 184, 184); */
-  /* font-style: italic; */
-  font-size: 13px;
-}
-
-.request-form-style::placeholder {
-  color: rgb(220, 220, 220);
-  font-size: 10px;
-}
-
-.request-btn-style {
-  border-radius: 5px;
-  width: 200px;
-  height: 46px;
-  font-size: 14px;
-}
-
 /* Popular Tabs */
 
 #popular-tab {
@@ -1031,7 +1011,7 @@ footer {
 }
 
 .card {
-  border-radius: .5rem;
+  border-radius: .2rem;
 }
 
 .form-control {

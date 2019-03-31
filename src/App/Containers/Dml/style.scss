@@ -29,20 +29,6 @@
             width: 250px;
         }
     }
-    .table-responsive {
-        border: 2px solid #C5C5C5;
-        border-radius: 10px;
-    }
-    .table {
-        margin-bottom: 0px;
-    }
-    .table td, .table th {
-        vertical-align: middle;
-        border-top: none;
-        .form-control {
-            width: auto;
-        }
-    }
     .pagination {
         justify-content: flex-end;
         margin-top: 1rem;
@@ -108,4 +94,23 @@
     // .gCeWql {
     //     display: none;
     // }
+}
+
+.order-dml-modal {
+    .card {
+        border: 2px solid #C5C5C5;
+        border-radius: 5px;
+    }
+    .table-responsive {
+        border: 0px !important;
+        border-radius: 10px;
+    }
+    .table thead th {
+        border-bottom: 0px; 
+        padding: .75rem .75rem .3rem .75rem;
+    }
+    .modal-footer {
+        padding: 1rem 11rem;
+        border: 0px;
+    }
 }

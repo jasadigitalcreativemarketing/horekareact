@@ -106,15 +106,13 @@ class LoginComponent extends Component {
                   <Form.Control onChange={this.onInputPassword} type="password" placeholder="" />
                 </Form.Group>
                 <Row>
-                  <Col className="remember-me" md={6} lg={6} >
+                  <Col md={6} lg={6}>  
                   <Form.Group controlId="formBasicChecbox">
                   <Form.Check type="checkbox" label="Remember Me" />
                   </Form.Group>
                   </Col>
-                  <Col md={6} lg={6} className="text-right pr-0" >
-                    <Button type="button" variant="link" >
-                    Forget Password
-                    </Button>
+                  <Col md={6} lg={6} className="text-right" >
+                    <a className='cursor-pointer text-slank'>Forgot Password</a>
                   </Col>
                 </Row>
               <Row className="center-text">

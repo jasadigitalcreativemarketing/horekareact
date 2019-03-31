@@ -14,18 +14,8 @@ class SearchResult extends Component {
         history.push(page)
       }
 
-      constructor(props, context) {
-        super(props, context);
-    
-        this.state = {
-          open: false,
-        };
-      }
-    
-
     render() {
         const {history} = this.props
-        const { open } = this.state;
         return (
             <div>
                 <NavbarComponent history={history} />
@@ -35,14 +25,6 @@ class SearchResult extends Component {
                 <Sidebar history={history} />
                 <Col md={9} className="pl-1 mt-3 search-result">
                     <h6 className="mb-3">Showing 175 items for "carrot"(1-60 of 175)</h6>
-                    <Button onClick={() => this.setState({ open: !open })} aria-controls="example-collapse-text" aria-expanded={open}>click</Button>
-        <Collapse in={this.state.open}>
-          <div id="example-collapse-text">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-            labore wes anderson cred nesciunt sapiente ea proident.
-          </div>
-        </Collapse>
                     <div className="d-flex">
                     <div className="mr-auto">
                         <h6>Sort: Low to high</h6>

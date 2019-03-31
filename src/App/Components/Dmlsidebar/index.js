@@ -66,6 +66,7 @@ class DmlSidebarComponent extends Component {
               </Collapse>
           </>
         </Card>
+        
         <Modal
           size='lg'
           show={modalState}

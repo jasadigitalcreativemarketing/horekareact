@@ -1,0 +1,14 @@
+.table-responsive {
+    border: 2px solid #C5C5C5;
+    border-radius: 10px;
+}
+.table {
+    margin-bottom: 0px;
+}
+.table td, .table th {
+    vertical-align: middle;
+    border-top: none;
+    .form-control {
+        width: auto;
+    }
+}

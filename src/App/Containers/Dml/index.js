@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import NavbarComponent from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import DmlSidebar from '../../Components/Dmlsidebar';
-import {Navbar, Nav, NavDropdown, Row, Col, Card, Container, Form, FormControl, Table, Pagination} from 'react-bootstrap'
+import {Row, Col, Card, Container, Form, FormControl, Table, Pagination, Modal, ButtonToolbar, Button} from 'react-bootstrap'
 import './style.scss'
-import { faLink, faTrash, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faTrash, faChevronLeft, faChevronRight, faListAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from 'prop-types';
 import { baseURL } from '../../Config';
@@ -169,6 +169,7 @@ class Dml extends Component {
       }
 
     render() {
+        let lgClose = () => this.setState({ lgShow: false });
         const {history} = this.props
         const {dataDML} = this.state
         console.log(this.state, 'pop')
@@ -286,11 +287,61 @@ class Dml extends Component {
                             selectableRows
                             pagination
                         /> */}
+                        <Button variant='primary' size='lg' className='width-20 mx-auto' onClick={() => this.setState({ lgShow: true })}>Order Now</Button>
                     </Card>
                 </Col>
                 </Row>
                 </Container>
                 <Footer history={history} />
+                    <Modal
+                    size="lg"
+                    show={this.state.lgShow}
+                    onHide={lgClose}
+                    aria-labelledby="example-modal-sizes-title-lg"
+                    className='order-dml-modal'
+                    >
+                    <Modal.Header closeButton={false} className='pb-1'>
+                        <Modal.Title id="example-modal-sizes-title-lg">
+                        <FontAwesomeIcon icon={faListAlt}></FontAwesomeIcon> Summary of Daily Market List
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p className='mb-1 text-bold'><span>Priority:Urgent</span><span className='ml-4'>Department:F&B</span><span className='ml-4'>Delivery Date:11/11/2019</span></p>
+                        <Card className='pl-3 pr-3'>
+                            <h6 className='pt-2'><span className='text-primary'>Perdana</span><span className='text-light'>(1 item)</span><span className='text-slank text-bold float-right'>Sub-Total: Rp 20.000</span></h6>
+                            <hr className='mt-1 mb-1'></hr>
+                        <Table responsive>
+                        <thead>
+                            <tr>
+                            <th>No.</th>
+                            <th>Item</th>
+                            <th>Details</th>
+                            <th>Category</th>
+                            <th>Qty</th>
+                            <th>Del Unit</th>
+                            <th>Unit Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>1</td>
+                            <td><img src="img/wortel.jpg" height="60" width="70" className="img-rounded"></img></td>
+                            <td>Wortel</td>
+                            <td>Agriculture & Food</td>
+                            <td>10</td>
+                            <td>kg</td>
+                            <td className='text-slank text-bold'>Rp. 2000</td>
+                            </tr>
+                            </tbody>
+                        </Table>
+                        </Card>
+                        <h6 className='float-right bg-light-gray p-2 pl-3 pr-3 radius-main mt-4'><span className='text-bold'>Total Price:</span><span className='ml-4 text-slank text-bold'>Rp. 520.000</span></h6>
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button size='lg' variant='dark' className='full-width'>Back</Button>
+                    <Button size='lg' variant='primary' className='full-width'>Add Item</Button>
+                    </Modal.Footer>
+                    </Modal>
                 
             </div>
         );
