@@ -31,6 +31,7 @@ class Dml extends Component {
         deliveryUnit: '',
         image:null,
         lgShow: false,
+        lgOrdershow: false,
         imageSend: null
     }
 
@@ -170,6 +171,7 @@ class Dml extends Component {
 
     render() {
         let lgClose = () => this.setState({ lgShow: false });
+        let lgOrderClose = () => this.setState({ lgOrderShow: false });
         const {history} = this.props
         const {dataDML} = this.state
         console.log(this.state, 'pop')
@@ -287,7 +289,7 @@ class Dml extends Component {
                             selectableRows
                             pagination
                         /> */}
-                        <Button variant='primary' size='lg' className='width-20 mx-auto' onClick={() => this.setState({ lgShow: true })}>Order Now</Button>
+                        <Button variant='primary' size='lg' className='width-20 mx-auto' onClick={() => this.setState({ lgOrderShow: true })}>Order Now</Button>
                     </Card>
                 </Col>
                 </Row>
@@ -295,8 +297,8 @@ class Dml extends Component {
                 <Footer history={history} />
                     <Modal
                     size="lg"
-                    show={this.state.lgShow}
-                    onHide={lgClose}
+                    show={this.state.lgOrderShow}
+                    onHide={lgOrderClose}
                     aria-labelledby="example-modal-sizes-title-lg"
                     className='order-dml-modal'
                     >
