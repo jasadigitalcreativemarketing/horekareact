@@ -54,7 +54,7 @@ const FooterComponent = () => {
               </tr>
             </tbody></table>
         </div>
-        <div className="col d-flex align-items-center footer-badge">
+        {/* <div className="col d-flex align-items-center footer-badge">
           <div className="row">
             <div className="col text-center"> 
               <button type="submit" className="btn footer-btn">F</button>
@@ -69,7 +69,7 @@ const FooterComponent = () => {
               <button type="submit" className="btn footer-btn">P</button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>

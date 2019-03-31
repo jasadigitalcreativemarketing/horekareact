@@ -1,4 +1,12 @@
 .dml-page {
+    .custom-select {
+        width: 130px;
+        display: block;
+        border: 2px solid #ced4da;
+        height: auto;
+        color: darkgray;
+        border-radius: .4rem;
+      }
     label {
         margin-bottom: .3rem;
     }

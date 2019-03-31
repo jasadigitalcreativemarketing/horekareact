@@ -1,0 +1,21 @@
+.form-control {
+    padding: .575rem .75rem;
+    border: 2px solid #d0d0d0;
+}
+
+select {
+    appearance: none;
+    + svg {
+        float: right;
+        margin-top: -29px;
+        margin-right: 5px;
+        color: $primary;
+        /* this is so when you click on the chevron, your click actually goes on the dropdown menu */
+        pointer-events: none;
+        /* everything after this is just to cover up the original arrow */
+        /* (for browsers that don't support the syntax used above) */
+        background-color: #fff;
+        padding-right: 5px;
+        font-size: large !important;
+    }
+  }

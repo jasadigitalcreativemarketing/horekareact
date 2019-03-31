@@ -1,0 +1,83 @@
+
+$info: #60c6ce !default;
+
+$primary-btn : #60c6ce;
+$slank-btn : #e88330;
+$secondary-btn: #d0d0d0;
+$danger-btn: #d3312d;
+
+$black: #686868;
+$gray: #b2b2b2;
+$primary: #60c6ce;
+$slank: #e88330;
+$danger: #d3312d;
+
+    a.dml-sidebar-menu {
+        text-transform: capitalize !important;
+        color: $black !important;
+        font-weight: 500;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+        &:hover {
+            background: #f6f6f6;
+            color: $primary !important;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            border-top: unset !important;
+            border-right: 2px solid $primary !important;
+            border-bottom: 2px solid $primary !important;
+            border-left: unset !important;
+            right: 15px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            transform: rotate(45deg);
+        }
+    }
+
+    .dml-sidebar-submenu {
+        a:hover {
+            color: $primary !important;
+        }
+    }
+
+.modal.dml {
+    @media (min-width: 992px) {
+        .modal-lg {
+            max-width: 550px !important;
+        }
+    }
+    .modal-content {
+        border: 0px;
+        .modal-body {
+            padding: 40px 90px !important;
+            img {
+                width: 47%;
+                height: 160px;
+                border-radius: 10px;
+            }
+            .btn {
+                height: 45px;
+                &.btn-secondary {
+                    padding: .1rem 2.3rem;
+                    font-weight: 400;
+                    font-size: 1rem;
+                }
+            }
+            .form-group {
+                margin-bottom: .5rem;
+                label.form-label {
+                    margin-bottom: 5px;
+                    font-weight: 600;
+                }
+            }
+            label.form-label {
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+        }
+    }
+}
