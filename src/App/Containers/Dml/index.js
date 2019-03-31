@@ -15,17 +15,116 @@ import {connect} from 'react-redux'
 class Dml extends Component {
 
     state = {
-        dataDML: []
+        dataDML: [],
+        itemName: '',
+        itemDescription: '',
+        category: '',
+        seller: '',
+        gramation: '',
+        length: '',
+        width: '',
+        height: '',
+        weight: '',
+        supplierId1: '',
+        supplierId2: '',
+        supplierId3: '',
+        deliveryUnit: '',
+        image:'',
+        lgShow: false
     }
 
     componentDidMount = () => {
         this.getDMLData()
     }
 
+    modalHandler = (status) => {
+        this.setState({lgShow: status})
+    }
+
     goToPage = (page) => {
         const {history} = this.props
         history.push(page)
       }
+
+    setItemName = (event) => {
+        const {value} = event.target
+        this.setState({itemName: value})
+    }
+
+    setItemDesc = (event) => {
+        const {value} = event.target
+        this.setState({itemDescription: value})
+    }
+    setCategory = (event) => {
+        const {value} = event.target
+        this.setState({category: value})
+    }
+    setSeller = (event) => {
+        const {value} = event.target
+        this.setState({seller: value})
+    }
+    setGramation = (event) => {
+        const {value} = event.target
+        this.setState({gramation: value})
+    }
+    setLength = (event) => {
+        const {value} = event.target
+        this.setState({length: value})
+    }
+    setWidth = (event) => {
+        const {value} = event.target
+        this.setState({width: value})
+    }
+    setWeight = (event) => {
+        const {value} = event.target
+        this.setState({weight: value})
+    }
+    setHeight = (event) => {
+        const {value} = event.target
+        this.setState({height: value})
+    }
+
+    postDMLHandler = () => {
+        const  {companyId} = this.props
+        const {itemName, supplierId1, supplierId2, supplierId3, deliveryUnit, length, width, height, weight, image} = this.state
+        const url = `${baseURL}/Horeka/rest/HorekaStoreService/storeDmlArticle`
+        const headers = {
+            "Content-Type": "application/json"
+
+        }
+        const body = {
+            request:{
+                customerID:companyId,
+                articleName:itemName,
+                supplierID1:supplierId1,
+                supplierID2:supplierId2,
+                supplierID3:supplierId3,
+                deliveryUnit:deliveryUnit,
+                dimentionlength:length,
+                dimentionwidth:width,
+                dimentionheight:height,
+                dimentionweight:weight,
+                imageurl: image
+                }
+        }
+
+        fetch(url, {
+            method: 'post',
+            headers,
+            body: JSON.stringify(body)
+        }).then((response) => response.json()).then(data => this.postDML(data)).catch((e) => console.log(e))
+    
+    }
+
+    postDML = (response) => {
+        if(response.response.resultStr === 'Store DML Success') {
+            this.setState({lgShow: false}, () => {
+                this.getDMLData()
+            })
+        } else {
+            return null
+        }
+    }
       
 
       getDMLData = async () => {
@@ -58,13 +157,27 @@ class Dml extends Component {
     render() {
         const {history} = this.props
         const {dataDML} = this.state
-        console.log(dataDML, 'pop')
+        console.log(this.state, 'pop')
         return (
             <div>
                 <NavbarComponent history={history} />
                 <Container className="mt-3 mb-3">
                 <Row>
-                <DmlSidebar history={this.props.history} />
+                <DmlSidebar 
+                history={this.props.history} 
+                setItemName={this.setItemName}
+                setItemDesc={this.setItemDesc}
+                setCategory={this.setCategory}
+                setGramation={this.setGramation}
+                setLength={this.setLength}
+                setSeller={this.setSeller}
+                setWidth={this.setWidth}
+                setHeight={this.setHeight}
+                setWeight={this.setWeight}
+                postDml={this.postDMLHandler}
+                modalHandler={this.modalHandler}
+                modalState={this.state.lgShow}
+                />
                 <Col md={9} className="pl-1 dml-page">
                     <Card className="p-3 no-border">
                         <h5>Daily Market List</h5>

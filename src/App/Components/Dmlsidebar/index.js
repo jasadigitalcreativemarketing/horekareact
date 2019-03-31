@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Col, Card, Collapse, Button, Modal, Form, FormControl, FormGroup } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import './style.scss'
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class DmlSidebarComponent extends Component {
   constructor (props, context) {
@@ -11,14 +11,14 @@ class DmlSidebarComponent extends Component {
 
     this.state = {
       openDaily: false,
-      openNotif: false,
-      lgShow: false,
+      openNotif: false
+
     }
   }
 
   render () {
     const { openDaily, openNotif } = this.state
-    let lgClose = () => this.setState({ lgShow: false });
+    const { setItemName, setCategory, setItemDesc, setGramation, setLength, setWidth, setWeight, setSeller, setHeight, modalState, modalHandler } = this.props
     return (
       <Col md={3} className='pr-1 dmlsidebar'>
         <Card className='p-3 no-border'>
@@ -33,20 +33,20 @@ class DmlSidebarComponent extends Component {
 
         <Card className='mt-3 no-border pt-2 pb-2'>
         <>
-              <a
-                onClick={() => this.setState({ openNotif: !openNotif })}
-                aria-controls='notifications'
-                aria-expanded={openNotif}
-                className='cursor-pointer p-1 mb-0 dml-sidebar-menu'
-              >
-              <h6 className="mb-0 pl-2">Notifications</h6>
-              </a>
-              <Collapse in={this.state.openNotif}>
-                <div id='notifications'  className='ml-4 mt-2 dml-sidebar-submenu mb-2'>
-                  <a className='p-1 d-block cursor-pointer'>Messages</a>
-                  <a className='p-1 d-block cursor-pointer'>Request</a>
-                </div>
-              </Collapse>
+          <a
+            onClick={() => this.setState({ openNotif: !openNotif })}
+            aria-controls='notifications'
+            aria-expanded={openNotif}
+            className='cursor-pointer p-1 mb-0 dml-sidebar-menu'
+          >
+            <h6 className='mb-0 pl-2'>Notifications</h6>
+          </a>
+          <Collapse in={this.state.openNotif}>
+            <div id='notifications' className='ml-4 mt-2 dml-sidebar-submenu mb-2'>
+              <a className='p-1 d-block cursor-pointer'>Messages</a>
+              <a className='p-1 d-block cursor-pointer'>Request</a>
+            </div>
+          </Collapse>
           </>
             <>
               <a
@@ -55,11 +55,11 @@ class DmlSidebarComponent extends Component {
                 aria-expanded={openDaily}
                 className='cursor-pointer p-1 mb-0 dml-sidebar-menu'
               >
-              <h6 className="mb-0 pl-2">Daily Market</h6>
+                <h6 className='mb-0 pl-2'>Daily Market</h6>
               </a>
               <Collapse in={this.state.openDaily}>
                 <div id='dailymarket' className='ml-4 mt-2 dml-sidebar-submenu'>
-                  <a className='p-1 d-block cursor-pointer' onClick={() => this.setState({ lgShow: true })}>Manage Item</a>
+                  <a className='p-1 d-block cursor-pointer' onClick={() => modalHandler(true)}>Manage Item</a>
                   <a className='p-1 d-block cursor-pointer'>Daily Market List</a>
                   <a className='p-1 d-block cursor-pointer'>Edit</a>
                 </div>
@@ -67,90 +67,106 @@ class DmlSidebarComponent extends Component {
           </>
         </Card>
         <Modal
-          size="lg"
-          show={this.state.lgShow}
+          size='lg'
+          show={modalState}
           className='dml'
-          onHide={lgClose}
-          aria-labelledby="example-modal-sizes-title-lg"
+          onHide={() => modalHandler(false)}
+          aria-labelledby='example-modal-sizes-title-lg'
         >
           <Modal.Body className=''>
             <div className='d-flex mb-3'>
-            <img className='' src='img/thumbnail.png'></img>
-            <div className='mt-5 ml-4'>
-              <Button size='lg' variant='secondary' className=''>upload image</Button>
-              <p><small>File size maximal 10 megabyte.</small> <br></br> <small>Allowed file extension:</small> <br></br> <small>JPG, JPEG, PNG.</small>  </p>
-            </div>
+              <img className='' src='img/thumbnail.png' />
+              <div className='mt-5 ml-4'>
+                <Button size='lg' variant='secondary' className=''>upload image</Button>
+                <p><small>File size maximal 10 megabyte.</small> <br /> <small>Allowed file extension:</small> <br /> <small>JPG, JPEG, PNG.</small>  </p>
+              </div>
             </div>
             <Form>
-              <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Group controlId='exampleForm.ControlInput1'>
                 <Form.Label>Item Name</Form.Label>
-                <Form.Control type="email" placeholder="" />
+                <Form.Control onChange={setItemName} type='email' placeholder='' />
               </Form.Group>
-              <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Group controlId='exampleForm.ControlSelect1'>
                 <Form.Label>Item Description</Form.Label>
-                <Form.Control as="select">
-                  <option>Carrot - Vegetable</option>
-                  <option>Apple - Fruit</option>
+                <Form.Control onChange={setItemDesc} as='select'>
+                  <option>Select Description</option>
+
+                  <option value='carrot' >Carrot - Vegetable</option>
+                  <option value='apple' >Apple - Fruit</option>
                 </Form.Control>
-                <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faChevronDown} />
               </Form.Group>
-              <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Group controlId='exampleForm.ControlSelect1'>
                 <Form.Label>Category by Horeka</Form.Label>
-                <Form.Control as="select">
-                  <option>Agriculture & food > Fresh Fruit > Carrot</option>
-                  <option>Apple - Fruit</option>
+                <Form.Control onChange={setCategory} as='select'>
+                  <option>Select Category</option>
+                  <option value='Agriculture & food' >Agriculture & food > Fresh Fruit > Carrot</option>
                 </Form.Control>
-                <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faChevronDown} />
               </Form.Group>
-              <Form.Group controlId="exampleForm.ControlSelect1" className='mb-3'>
+              <Form.Group controlId='exampleForm.ControlSelect1' className='mb-3'>
                 <Form.Label>Seller</Form.Label>
-                <Form.Control as="select">
-                  <option>Migunani</option>
-                  <option>Apple - Fruit</option>
+                <Form.Control onChange={setSeller} as='select'>
+                  <option> Select Seller </option>
+                  <option value='Migunani' >Migunani</option>
+                  <option value='Apple - Fruit' >Apple - Fruit</option>
                 </Form.Control>
-                <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faChevronDown} />
               </Form.Group>
 
               <a className='text-primary text-italic text-bold cursor-pointer'>add seller +</a>
 
-              <Form.Group controlId="exampleForm.ControlSelect1" className='mt-3'>
+              <Form.Group controlId='exampleForm.ControlSelect1' className='mt-3'>
                 <Form.Label>Gramation</Form.Label>
-                <Form.Control as="select">
-                  <option>Kilogram</option>
-                  <option>Gram</option>
+                <Form.Control onChange={setGramation} as='select'>
+                  <option>Select Gramation</option>
+                  <option value='kg' >Kilogram</option>
+                  <option value='g' >Gram</option>
                 </Form.Control>
-                <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faChevronDown} />
               </Form.Group>
               <Form.Label>Dimention</Form.Label>
-                <Form.Row className='mb-2'>
-                  <Col>
-                    <Form.Control placeholder="length (cm)" />
-                  </Col>
-                  <Col>
-                    <Form.Control placeholder="width (cm)" />
-                  </Col>
-                </Form.Row>
-                <Form.Row className=''>
-                  <Col>
-                    <Form.Control placeholder="height (cm)" />
-                    <Button size='lg' variant='dark' className='mt-4 full-width'>Back</Button>
-                  </Col>
-                  <Col>
-                    <Form.Control placeholder="weight (kg)" />
-                    <Button size='lg' variant='primary' className='mt-4 full-width'>Add Item</Button>
-                  </Col>
-                </Form.Row>
-              </Form>
+              <Form.Row className='mb-2'>
+                <Col>
+                  <Form.Control onChange={setLength} placeholder='length (cm)' />
+                </Col>
+                <Col>
+                  <Form.Control onChange={setWidth} placeholder='width (cm)' />
+                </Col>
+              </Form.Row>
+              <Form.Row className=''>
+                <Col>
+                  <Form.Control onChange={setHeight} placeholder='height (cm)' />
+                  <Button onClick={() => modalHandler(false)} size='lg' variant='dark' className='mt-4 full-width'>Back</Button>
+                </Col>
+                <Col>
+                  <Form.Control onChange={setWeight} placeholder='weight (kg)' />
+                  <Button onClick={this.props.postDml} size='lg' variant='primary' className='mt-4 full-width'>Add Item</Button>
+                </Col>
+              </Form.Row>
+            </Form>
           </Modal.Body>
         </Modal>
       </Col>
-      
+
     )
   }
 }
 
 DmlSidebarComponent.propTypes = {
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  setItemName: PropTypes.func,
+  setItemDesc: PropTypes.func,
+  setCategory: PropTypes.func,
+  setLength: PropTypes.func,
+  setSeller: PropTypes.func,
+  setGramation: PropTypes.func,
+  setWidth: PropTypes.func,
+  setWeight: PropTypes.func,
+  setHeight: PropTypes.func,
+  postDml: PropTypes.func,
+  modalState: PropTypes.func,
+  modalHandler: PropTypes.func
 }
 
 export default DmlSidebarComponent

@@ -18,8 +18,6 @@ class Home extends Component {
     list: []
   }
 
- 
-
   render() {
     const {history} = this.props
     return (
