@@ -77,7 +77,11 @@ class DmlSidebarComponent extends Component {
             <div className='d-flex mb-3'>
               <img className='' src='img/thumbnail.png' />
               <div className='mt-5 ml-4'>
-                <Button size='lg' variant='secondary' className=''>upload image</Button>
+                {/* <Button size='lg' variant='secondary' className=''>upload image</Button> */}
+                <label className='btn btn-warning btn-font no-padding-horizontal'>
+                  <input type='file' hidden />
+                  Upload Image
+                </label>
                 <p><small>File size maximal 10 megabyte.</small> <br /> <small>Allowed file extension:</small> <br /> <small>JPG, JPEG, PNG.</small>  </p>
               </div>
             </div>
