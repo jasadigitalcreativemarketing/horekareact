@@ -18,7 +18,7 @@ class DmlSidebarComponent extends Component {
 
   render () {
     const { openDaily, openNotif } = this.state
-    const { setItemName, setCategory, setItemDesc, setGramation, setLength, setWidth, setWeight, setSeller, setHeight, modalState, modalHandler } = this.props
+    const { setItemName, setCategory, setItemDesc, setGramation, setLength, setWidth, setWeight, setSeller, setHeight, modalState, modalHandler, changeImage, image } = this.props
     return (
       <Col md={3} className='pr-1 dmlsidebar'>
         <Card className='p-3 no-border'>
@@ -75,11 +75,11 @@ class DmlSidebarComponent extends Component {
         >
           <Modal.Body className=''>
             <div className='d-flex mb-3'>
-              <img className='' src='img/thumbnail.png' />
+              <img className='' src={image || 'img/thumbnail.png'} />
               <div className='mt-5 ml-4'>
                 {/* <Button size='lg' variant='secondary' className=''>upload image</Button> */}
                 <label className='btn btn-warning btn-font no-padding-horizontal'>
-                  <input type='file' hidden />
+                  <input onChange={changeImage} type='file' hidden />
                   Upload Image
                 </label>
                 <p><small>File size maximal 10 megabyte.</small> <br /> <small>Allowed file extension:</small> <br /> <small>JPG, JPEG, PNG.</small>  </p>
@@ -170,7 +170,9 @@ DmlSidebarComponent.propTypes = {
   setHeight: PropTypes.func,
   postDml: PropTypes.func,
   modalState: PropTypes.func,
-  modalHandler: PropTypes.func
+  modalHandler: PropTypes.func,
+  changeImage: PropTypes.func,
+  image: PropTypes.string
 }
 
 export default DmlSidebarComponent

@@ -29,8 +29,9 @@ class Dml extends Component {
         supplierId2: '',
         supplierId3: '',
         deliveryUnit: '',
-        image:'',
-        lgShow: false
+        image:null,
+        lgShow: false,
+        imageSend: null
     }
 
     componentDidMount = () => {
@@ -84,9 +85,22 @@ class Dml extends Component {
         this.setState({height: value})
     }
 
+    onChangeImage = (event) => {
+        const {files} = event.target
+        const reader = new FileReader()
+        console.log(files, 'coco')
+        const url = reader.readAsDataURL(files[0])
+        reader.onloadend = () => {
+            this.setState({
+                image: reader.result,
+                imageSend: files[0].name
+            })
+        }
+    }
+
     postDMLHandler = () => {
         const  {companyId} = this.props
-        const {itemName, supplierId1, supplierId2, supplierId3, deliveryUnit, length, width, height, weight, image} = this.state
+        const {itemName, supplierId1, supplierId2, supplierId3, deliveryUnit, length, width, height, weight, image, imageSend} = this.state
         const url = `${baseURL}/Horeka/rest/HorekaStoreService/storeDmlArticle`
         const headers = {
             "Content-Type": "application/json"
@@ -104,7 +118,7 @@ class Dml extends Component {
                 dimentionwidth:width,
                 dimentionheight:height,
                 dimentionweight:weight,
-                imageurl: image
+                imageurl: imageSend
                 }
         }
 
@@ -177,6 +191,8 @@ class Dml extends Component {
                 postDml={this.postDMLHandler}
                 modalHandler={this.modalHandler}
                 modalState={this.state.lgShow}
+                changeImage={this.onChangeImage}
+                image={this.state.image}
                 />
                 <Col md={9} className="pl-1 dml-page">
                     <Card className="p-3 no-border">
