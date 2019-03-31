@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavbarComponent from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import Sidebar from '../../Components/Sidebar';
-import {Navbar, Nav, NavDropdown, Row, Col, Card, Container, Form, FormControl, CardImg, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, Row, Col, Card, Container, Collapse, CardImg, Button} from 'react-bootstrap'
 import './style.scss'
 import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,23 +14,42 @@ class SearchResult extends Component {
         history.push(page)
       }
 
+      constructor(props, context) {
+        super(props, context);
+    
+        this.state = {
+          open: false,
+        };
+      }
+    
+
     render() {
         const {history} = this.props
+        const { open } = this.state;
         return (
             <div>
                 <NavbarComponent history={history} />
                 <Container className="mt-3 mb-3">
+                
                 <Row>
                 <Sidebar history={history} />
                 <Col md={9} className="pl-1 mt-3 search-result">
                     <h6 className="mb-3">Showing 175 items for "carrot"(1-60 of 175)</h6>
+                    <Button onClick={() => this.setState({ open: !open })} aria-controls="example-collapse-text" aria-expanded={open}>click</Button>
+        <Collapse in={this.state.open}>
+          <div id="example-collapse-text">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+            labore wes anderson cred nesciunt sapiente ea proident.
+          </div>
+        </Collapse>
                     <div className="d-flex">
                     <div className="mr-auto">
                         <h6>Sort: Low to high</h6>
                     </div>
                     <div className="ml-auto mr-10">
                         <div className="d-flex">
-                        <label>
+                        <label className="mr-1">
                         <input type="radio" name="radio" id="" checked/>
                         <div className="btn-radio">
                             Select

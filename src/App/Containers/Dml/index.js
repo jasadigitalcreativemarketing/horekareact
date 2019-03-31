@@ -64,7 +64,7 @@ class Dml extends Component {
                 <NavbarComponent history={history} />
                 <Container className="mt-3 mb-3">
                 <Row>
-                <DmlSidebar history={history} />
+                <DmlSidebar history={this.props.history} />
                 <Col md={9} className="pl-1 dml-page">
                     <Card className="p-3 no-border">
                         <h5>Daily Market List</h5>

@@ -17,7 +17,7 @@ const NavbarComponent = ({history}) => {
     <Navbar.Brand className="cursor-pointer" onClick={() => goToPage('/')}>HorekaStore</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
-      <Form inline className="mr-auto">
+      <Form inline className="mx-auto">
       <div className="input-group input-style">
                 <div className="input-group-prepend">
                    <NavDropdown title="All" id="basic-nav-dropdown">
@@ -28,18 +28,18 @@ const NavbarComponent = ({history}) => {
                       <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
                 </div>
-                <FormControl type="text" placeholder="what are you looking for.." className="form-control form-style"/>
+                <FormControl type="text" placeholder="what are you looking for.." className="form-style"/>
                 <div className="input-group-append">
                   <button onClick={() => goToPage('/searchresult')} className="btn btn-group-text btn-group-style bg-main text-white text-600" type="submit" id="button-addon2">SEARCH</button>
                 </div>
               </div>
               </Form>
-                <div className="navbar-nav">
-                <Nav.Link className="cursor-pointer" onClick={() => goToPage('/dml')}><FontAwesomeIcon icon={faListAlt} /><span className="text-style text-600">DAILY MARKET LIST</span></Nav.Link>
-                <Nav.Link className="nav-item nav-link" href="#"><FontAwesomeIcon icon={faSearch} /></Nav.Link>
-              <Nav.Link className="nav-item nav-link" href="#"><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
+                <div className="navbar-nav mx-auto">
+                <Nav.Link className="cursor-pointer mx-auto" onClick={() => goToPage('/dml')}><FontAwesomeIcon icon={faListAlt} /><span className="text-style text-600">DAILY MARKET LIST</span></Nav.Link>
+                <Nav.Link className="nav-item nav-link mx-auto" href="#"><FontAwesomeIcon icon={faSearch} /></Nav.Link>
+              <Nav.Link className="nav-item nav-link mx-auto" href="#"><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
             </div>
-      <ButtonGroup>
+      <ButtonGroup className="mx-auto">
         <Button className="btn-register text-center" onClick={() => goToPage('/register')} variant="">Register</Button>
         <Button variant="" className="btn-login text-center" onClick={() => goToPage('/login')}>Login</Button>
       </ButtonGroup>
