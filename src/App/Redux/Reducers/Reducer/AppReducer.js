@@ -1,12 +1,12 @@
-import {IS_ERROR_APP, IS_LOADING_APP} from '../../Types'
+import { IS_ERROR_APP, IS_LOADING_APP } from '../../Types'
 
 const initialState = {
   error: false,
-  loading: false,
+  loading: false
 }
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case IS_ERROR_APP:
       return {
         ...state.error,
@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
         ...state.loading,
         loading: action.payload
       }
-      default:
+    default:
       return initialState
   }
 }

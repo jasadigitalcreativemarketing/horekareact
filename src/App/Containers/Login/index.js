@@ -5,7 +5,8 @@ import {Container, Row, Col, Form, Button, Alert, Card} from 'react-bootstrap'
 import './styles.scss'
 import PropTypes from 'prop-types';
 import {baseURL} from '../../Config'
-
+import {connect} from 'react-redux'
+import {setCompanyId} from '../../Redux/Actions'
 class LoginComponent extends Component {
 
   state = {
@@ -44,8 +45,12 @@ class LoginComponent extends Component {
   }
 
   setupLogin = (res) => {
+    console.log(res, 'koko')
     if(res.response.errCode === 200) {
-      this.setState({success: true, message: res.response.companyID })
+      this.setState({success: true, message: res.response.companyID }, () => {
+        this.props.setID(res.response.companyID)
+      })
+      this.goToPage('/')
       return
     }
     this.setState({success: false})
@@ -135,7 +140,13 @@ class LoginComponent extends Component {
 }
 
 LoginComponent.propTypes = {
-  history : PropTypes.object
+  history : PropTypes.object,
+  setID: PropTypes.func
 }
 
-export default LoginComponent
+
+const mapDispatchToProps = (dispatch) => ({
+  setID: (id) => dispatch(setCompanyId(id))
+})
+
+export default connect(null, mapDispatchToProps) (LoginComponent)

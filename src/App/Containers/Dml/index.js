@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { Component } from 'react';
 import NavbarComponent from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
@@ -7,45 +8,57 @@ import './style.scss'
 import { faLink, faTrash, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from 'prop-types';
-import DataTable from 'react-data-table-component';
+import { baseURL } from '../../Config';
+import {connect} from 'react-redux'
 
-// const data = [{ id: 1, item: 'image', details: 'wortel', category: 'Agriculture & food', unitprice: 'Rp. 2000', subtotal: 'Rp. 20.000' }, 
-// { id: 1, item: 'image', details: 'wortel', category: 'Food', unitprice: 'Rp. 2000', subtotal: 'Rp. 50.000' }];
-// const columns = [
-//   {
-//     name: 'Item',
-//     selector: 'item',
-//   },
-//   {
-//     name: 'Details',
-//     selector: 'details',
-
-//   },
-//   {
-//     name: 'Category',
-//     selector: 'category',
-//     sortable: true,
-//   },
-//   {
-//     name: 'Unit Price',
-//     selector: 'unitprice',
-//     sortable: true,
-//   },
-//   {
-//     name: 'Sub-Total',
-//     selector: 'subtotal',
-//     sortable: true,
-//   },
-// ];
 
 class Dml extends Component {
+
+    state = {
+        dataDML: []
+    }
+
+    componentDidMount = () => {
+        this.getDMLData()
+    }
+
     goToPage = (page) => {
         const {history} = this.props
         history.push(page)
       }
+      
+
+      getDMLData = async () => {
+          const url = `${baseURL}/Horeka/rest/HorekaStoreService/getDmlArticleList
+          `
+          // eslint-disable-next-line react/prop-types
+          const {companyId} = this.props
+          console.log(companyId, 'koko')
+          const headers = {
+              "Content-Type": 'application/json'
+          }
+          const body = {
+              request: {
+                custID: companyId
+              }
+          }
+          
+          await fetch(url, {
+              headers,
+              body: JSON.stringify(body) ,
+              method: 'post'
+          }).then((response) => response.json()).then((data) => this.setDataDMLHandler(data)).catch((e) => console.log(e))
+      }
+    
+      setDataDMLHandler = (data) => {
+          console.log("PAPA", data)
+          this.setState({dataDML: data.response.dmlArt['dml-art']})
+      }
 
     render() {
         const {history} = this.props
+        const {dataDML} = this.state
+        console.log(dataDML, 'pop')
         return (
             <div>
                 <NavbarComponent history={history} />
@@ -107,34 +120,26 @@ class Dml extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <td><input type="checkbox"></input></td>
-                                <td><img src="img/wortel.jpg" height="60" width="70" className="img-rounded"></img></td>
-                                <td><a href="">Wortel</a></td>
-                                <td>Agriculture & Food</td>
-                                <td><Form.Control as="select"><option>10</option><option>20</option>
-                                </Form.Control></td>
-                                <td><Form.Control as="select"><option>kg</option><option>g</option>
-                                </Form.Control></td>
-                                <td><Form.Control as="select"><option>Perdana</option><option>Kedua</option>
-                                </Form.Control></td>
-                                <td>Rp. 2000</td>
-                                <td>Rp. 30.000</td>
-                                </tr>
-                                <tr>
-                                <td><input type="checkbox"></input></td>
-                                <td><img src="img/wortel.jpg" height="60" width="70" className="img-rounded"></img></td>
-                                <td><a href="">Wortel</a></td>
-                                <td>Agriculture & Food</td>
-                                <td><Form.Control as="select"><option>10</option><option>20</option>
-                                </Form.Control></td>
-                                <td><Form.Control as="select"><option>kg</option><option>g</option>
-                                </Form.Control></td>
-                                <td><Form.Control as="select"><option>Perdana</option><option>Kedua</option>
-                                </Form.Control></td>
-                                <td>Rp. 2000</td>
-                                <td>Rp. 30.000</td>
-                                </tr>
+                                {dataDML.map((x, index) => (
+                                    <tr key={index} >  
+                                    <td><input type="checkbox"></input></td>
+                                    <td><img src="img/wortel.jpg" height="60" width="70" className="img-rounded"></img></td>
+                                    <td><a href="">{x['item-name']} </a></td>
+                                    <td> {x['article-name']} </td>
+                                    <td><Form.Control as="select">
+                                    <option> {x['delivery-content']} </option>
+                                    </Form.Control></td>
+                                    <td><Form.Control as="select">
+                                    <option> {x['delivery-unit']} </option>
+                                    </Form.Control></td>
+                                    <td><Form.Control as="select">
+                                   <option> {x['supplierID']}</option>
+                                    </Form.Control></td>
+                                    <td> {x['unit-price']} </td>
+                                    <td> Rp. {x['delivery-content'] * x['unit-price']} </td>
+                                    </tr>
+                                ))}
+                                
                             </tbody>
                         </Table>
                         <Pagination>
@@ -167,4 +172,8 @@ Dml.propTypes = {
 
 };
 
-export default Dml;
+const mapStateToProps = (state) => ({
+    companyId: state.auth && state.auth.companyID
+})
+
+export default connect(mapStateToProps, null)  (Dml);
