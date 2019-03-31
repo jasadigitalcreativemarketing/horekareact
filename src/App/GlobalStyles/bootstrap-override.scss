@@ -3,3 +3,37 @@
         max-width: 1200px;
     }
 }
+
+.dropdown-toggle {
+    &::after {
+        content: '';
+        display: inline-block;
+        margin-left: .555em !important;
+        border-top: unset !important;
+        border-right: 2px solid $primary !important;
+        border-bottom: 2px solid $primary !important;
+        border-left: unset !important;
+        width: 8px;
+        height: 8px;
+        transform: rotate(45deg);
+    }
+}
+
+// NAVBAR
+.nav-link {
+    padding: .66rem 1rem !important;
+}
+
+// FORM-CONTROL
+.input-group {
+    .form-control {
+        border: 0px !important;
+    }
+    .input-group-prepend {
+        .nav-item {
+            .nav-link {
+                color: $black !important;
+            }
+        }
+    }
+}
