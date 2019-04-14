@@ -6,6 +6,7 @@ import RegisterComponent from '../Containers/Register';
 import SearchResult from '../Containers/SearchResult';
 import SearchResultRev from '../Containers/SearchResultRev';
 import Dml from '../Containers/Dml';
+import Dashboard from '../Containers/Dashboard';
 
 const MainRouter = () => (
   <Router>
@@ -16,6 +17,7 @@ const MainRouter = () => (
     <Route path="/searchresult" component={SearchResult} />
     <Route path="/searchresultrev" component={SearchResultRev} />
     <Route path="/dml" component={Dml} />
+    <Route path="/dashboard" component={Dashboard} />
     </div>
   </Router>
 )

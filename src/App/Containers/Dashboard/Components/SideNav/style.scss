@@ -1,0 +1,93 @@
+.horeka-side-nav {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+  }
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-height: 100vh;
+  background: #fff;
+  box-shadow: 5px 0 8px -6px #888;
+  .fa-times {
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+
+  .name {
+    h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+
+  .close {
+    margin: auto;
+    .MuiSvgIcon-root-1 {
+      font-size: 30px;
+    }
+  }
+
+  .role {
+    margin-top: 20px;
+    img {
+      max-width: 35px;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+  }
+
+  .manage {
+    margin-top: 20px;
+  }
+
+  .accordion__button {
+    background: #fff;
+  }
+
+  .accordion__button[aria-expanded='true']::before, 
+  .accordion__button[aria-selected='true']::before {
+    transform: rotate(225deg);
+  }
+
+  .accordion__button:before {
+    transform: rotate(45deg);
+    position: absolute;
+    right: 0;
+  }
+
+  .accordion__panel {
+    padding: 0;
+  }
+
+  .menu {
+    padding: 0;
+  }
+
+  .menu-item {
+    cursor: pointer;
+    padding: 23px 15px;
+    p{
+      margin: 0;
+    }
+
+    &.active {
+      background: #f0f0f0;
+    }
+
+    .number {
+      padding-right: 15px;
+      padding-left: 10px;
+    }
+  }
+
+  .fa-store {
+    margin-right: 3px;
+  }
+}
