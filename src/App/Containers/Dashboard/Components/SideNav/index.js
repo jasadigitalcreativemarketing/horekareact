@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import { faTimes, faStore, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faStore, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from 'prop-types';
 import {
@@ -17,8 +17,26 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import './style.scss';
 
 class SideNav extends Component {
+  constructor() {
+    super();
+    this.handleMenu = this.handleMenu.bind(this);
+  }
+
+  state = {
+    activePath: '',
+  }
+
+  handleMenu(path) {
+    const { routeHandler, url } = this.props;
+    this.setState({activePath:`${url}/${path}`});
+
+    routeHandler(path);
+  }
+
   render() {
-    const { actFunc } = this.props;
+    const { actFunc, url } = this.props;
+    const { handleMenu } = this;
+    const { activePath } = this.state;
     return (
       <div className="horeka-side-nav">
         <Container>
@@ -51,22 +69,34 @@ class SideNav extends Component {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   <ul className="menu">
-                    <li className="menu-item d-flex active">
+                    <li 
+                      className={activePath === `${url}/seller/account` ? 'menu-item d-flex active' : 'menu-item d-flex'} 
+                      onClick={() => handleMenu('seller/account')}
+                    >
                       <p className="number">1</p>
                       <p>Seller Account</p>
                     </li>
 
-                    <li className="menu-item d-flex">
+                    <li 
+                      className={activePath === `${url}/seller/user` ? 'menu-item d-flex active' : 'menu-item d-flex'} 
+                      onClick={() => handleMenu('seller/user')}
+                    >
                       <p className="number">2</p>
                       <p>User Account</p>
                     </li>
 
-                    <li className="menu-item d-flex">
+                    <li 
+                      className={activePath === `${url}/seller/product` ? 'menu-item d-flex active' : 'menu-item d-flex'} 
+                      onClick={() => handleMenu('seller/product')}
+                    >
                       <p className="number">3</p>
                       <p>Product Seller</p>
                     </li>
 
-                    <li className="menu-item d-flex">
+                    <li 
+                      className={activePath === `${url}/seller/inventory` ? 'menu-item d-flex active' : 'menu-item d-flex'} 
+                      onClick={() => handleMenu('seller/inventory')}
+                    >
                       <p className="number">4</p>
                       <p>Inventory Seller</p>
                     </li>
@@ -82,17 +112,26 @@ class SideNav extends Component {
                   </AccordionItemHeading>
                   <AccordionItemPanel>
                   <ul className="menu">
-                    <li className="menu-item d-flex">
+                    <li
+                      className={activePath === `${url}/buyer/user` ? 'menu-item d-flex active' : 'menu-item d-flex'}
+                      onClick={() => handleMenu('buyer/user')}
+                    >
                       <p className="number">1</p>
                       <p>User Account</p>
                     </li>
 
-                    <li className="menu-item d-flex">
+                    <li 
+                      className={activePath === `${url}/buyer/ranks` ? 'menu-item d-flex active' : 'menu-item d-flex'}
+                      onClick={() => handleMenu('buyer/ranks')}
+                    >
                       <p className="number">2</p>
                       <p>Ranks</p>
                     </li>
 
-                    <li className="menu-item d-flex">
+                    <li 
+                      className={activePath === `${url}/buyer/setting` ? 'menu-item d-flex active' : 'menu-item d-flex'}
+                      onClick={() => handleMenu('buyer/setting')}
+                    >
                       <p className="number">3</p>
                       <p>General Setting</p>
                     </li>
@@ -110,6 +149,8 @@ class SideNav extends Component {
 
 SideNav.propTypes = {
   actFunc: PropTypes.func,
+  routeHandler: PropTypes.func,
+  url: PropTypes.string,
 }
 
 export default SideNav;
