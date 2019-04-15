@@ -58,12 +58,14 @@ class LoginComponent extends Component {
 
   onSubmit = () => {
     const {email, password} = this.state
+    const { history } = this.props;
     const available = email && password
     if(available) {
       this.loginHandler()
     } else if(!available) {
       this.setState({error: true})
     }
+    history.push('/dashboard');
   }
 
   goToPage = (page) => {

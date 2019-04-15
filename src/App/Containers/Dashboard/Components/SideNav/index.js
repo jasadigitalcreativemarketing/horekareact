@@ -33,8 +33,13 @@ class SideNav extends Component {
     routeHandler(path);
   }
 
+  componentWillMount() {
+    const { location } = this.props;
+    this.setState({activePath: location.pathname})
+  }
+
   render() {
-    const { actFunc, url } = this.props;
+    const { actFunc, url, history } = this.props;
     const { handleMenu } = this;
     const { activePath } = this.state;
     return (
@@ -151,6 +156,7 @@ SideNav.propTypes = {
   actFunc: PropTypes.func,
   routeHandler: PropTypes.func,
   url: PropTypes.string,
+  location: PropTypes.object,
 }
 
 export default SideNav;

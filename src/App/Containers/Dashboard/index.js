@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { Route } from 'react-router-dom';
+import { Route,BrowserRouter as Router } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import SideNav from './Components/SideNav';
@@ -20,6 +20,10 @@ class Dashboard extends Component {
     showSideMenu: true
   }
 
+  componentDidMount() {
+    this.forceUpdate();
+  }
+
   sideMenuHandler(command) {
     if(command === 'open') this.setState({ showSideMenu: true});
     else this.setState({ showSideMenu: false});
@@ -33,7 +37,7 @@ class Dashboard extends Component {
   render() {
     const { showSideMenu } = this.state;
     const { sideMenuHandler, routeHandler } = this;
-    const { match } = this.props;
+    const { match, location } = this.props;
 
     return(
       <div className="horeka-dash">
@@ -43,7 +47,11 @@ class Dashboard extends Component {
             lg={3} 
             className={showSideMenu ? 'side-nav-cnt pr-0':'d-none'}
           >
-            <SideNav actFunc={sideMenuHandler} routeHandler={routeHandler} url={match.url}/>
+            <SideNav 
+              actFunc={sideMenuHandler} 
+              routeHandler={routeHandler} 
+              url={match.url} 
+              location={location}/>
           </Col>
 
           <Col 
@@ -55,12 +63,11 @@ class Dashboard extends Component {
 
             <Row className="main-dashboard p-4">
               <Col>
-                <h5 className="d-breadcrumb">Manage Seller - Seller Account</h5>
-                <Route path={`${match.url}/seller/account`} component={SellerAccount}></Route>
+                <Route path={`${match.url}/seller/account`} render={ () => <SellerAccount />} />
                 <Route
                   exact
                   path={match.path}
-                  render={() => <h3>Please select a topic.</h3>}
+                  render={() => <h3>Horeka Dashboard</h3>}
                 />
               </Col>
             </Row>
