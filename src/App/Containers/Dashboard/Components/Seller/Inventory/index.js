@@ -33,7 +33,7 @@ const rows = [
   createData(true,'https://www.chainstoreage.com/wp-content/uploads/2018/11/AdoreMe_store.jpg','Makmur Maning', 'PT.Untung Selalu', 'Jl.Menuju Kesuksesan No.1 Tebet, Jakarta Selatan', 'su@gmail.com', 'button'),
 ];
 
-class Account extends Component {
+class Inventory extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +50,7 @@ class Account extends Component {
 
     return (
       <div className="sellerAccount">
-        <h5 className="title">Manage Seller - Seller Account</h5>
+        <h5 className="title">Manage Seller - Seller Inventory</h5>
         <div className="row row-action mb-3">
           <div className="col-4 position-relative">
             <Search className="iconSearch"/>
@@ -67,18 +67,6 @@ class Account extends Component {
               <MenuItem value={20}>Twenty</MenuItem>
               <MenuItem value={30}>Thirty</MenuItem>
             </Select>
-          </div>
-
-          <div className="col pl-0 buttonAdd">
-            <Button variant="contained" size="small" className="customButton">
-              Add Account
-            </Button>
-          </div>
-
-          <div className="col pl-0 buttonDelete">
-            <Button variant="contained" size="small" className="customButton red">
-              Delete
-            </Button>
           </div>
         </div>
         <Paper className>
@@ -113,7 +101,7 @@ class Account extends Component {
                   <TableCell className="customCell" align="left">{row.email}</TableCell>
                   <TableCell className="customCell" align="left">
                     <Button variant="contained" size="small" className="customButton">
-                      Edit
+                      View Products
                     </Button>
                   </TableCell>
                 </TableRow>
@@ -126,10 +114,10 @@ class Account extends Component {
   }
 }
 
-Account.propTypes = {
+Inventory.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 export default compose(
   withRouter,
-)(Account);
+)(Inventory);

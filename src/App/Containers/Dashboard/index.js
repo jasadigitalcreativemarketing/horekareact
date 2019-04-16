@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import SideNav from './Components/SideNav';
 import Navigation from './Components/Navigation';
 import SellerAccount from './Components/Seller/Account';
+import SellerInventory from './Components/Seller/Inventory';
 
 import './style.scss';
 
@@ -64,6 +65,7 @@ class Dashboard extends Component {
             <Row className="main-dashboard p-4">
               <Col>
                 <Route path={`${match.url}/seller/account`} render={ () => <SellerAccount />} />
+                <Route path={`${match.url}/seller/inventory`} render={ () => <SellerInventory />} />
                 <Route
                   exact
                   path={match.path}
