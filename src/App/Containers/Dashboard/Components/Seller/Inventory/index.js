@@ -49,7 +49,7 @@ class Inventory extends Component {
   render() {
 
     return (
-      <div className="sellerAccount">
+      <div className="sellerInventory">
         <h5 className="title">Manage Seller - Seller Inventory</h5>
         <div className="row row-action mb-3">
           <div className="col-4 position-relative">

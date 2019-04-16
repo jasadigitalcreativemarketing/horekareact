@@ -19,23 +19,23 @@
   border-radius: 3px!important;
 }
 
-.customButton {
-  padding: 4px 50px!important;
-  background: #48c7d0!important;
-  color: #fff!important;
-  font-size: 0.8rem!important;
-  font-weight: bold!important;
-  border-radius: 8px!important;
-  &:focus {
-    outline: none;
-  }
-
-  &.red {
-    background: #cd362c!important;
-  }
-}
-
 .sellerAccount {
+  .customButton {
+    padding: 4px 50px!important;
+    background: #48c7d0!important;
+    color: #fff!important;
+    font-size: 0.8rem!important;
+    font-weight: bold!important;
+    border-radius: 8px!important;
+    &:focus {
+      outline: none;
+    }
+  
+    &.red {
+      background: #cd362c!important;
+    }
+  }
+
   .title {
     font-weight: bold;
     font-size: 1rem;
