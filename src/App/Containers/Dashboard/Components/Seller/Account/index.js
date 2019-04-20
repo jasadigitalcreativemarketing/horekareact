@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -14,6 +13,9 @@ import compose from 'recompose/compose';
 import { Search } from '@material-ui/icons';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+
+import AddAccount from './AddAccount';
+
 
 import './style.scss';
 
@@ -38,15 +40,22 @@ class Account extends Component {
     super(props);
     this.state = {
       init: false,
-      lastActive: 10
+      lastActive: 10,
+      open: false,
     }
+
+    this.openModalAdd = this.openModalAdd.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    console.log('newProps',newProps);
+  openModalAdd() {
+    this.setState({
+      open: !this.state.open,
+    });
   }
 
   render() {
+    const { open } = this.state;
+    const { openModalAdd } = this;
 
     return (
       <div className="sellerAccount">
@@ -70,9 +79,15 @@ class Account extends Component {
           </div>
 
           <div className="col pl-0 buttonAdd">
-            <Button variant="contained" size="small" className="customButton">
+            <Button 
+              variant="contained" 
+              size="small" 
+              className="customButton"
+              onClick={openModalAdd}
+            >
               Add Account
             </Button>
+            <AddAccount open={open} handler={openModalAdd}/>
           </div>
 
           <div className="col pl-0 buttonDelete">

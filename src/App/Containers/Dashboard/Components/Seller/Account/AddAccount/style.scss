@@ -1,0 +1,34 @@
+.customDialog {
+  min-width: 600px;
+
+  div{
+    &:nth-child(2) {
+      & > div {
+        &:last-child {
+          justify-content: center!important;
+        }
+      }
+    }
+  }
+}
+
+.formCorporate {
+  label {
+    font-weight: bold;
+    margin-bottom: .2rem;
+  }
+}
+
+.btnCustomModal {
+  font-weight: bold!important;
+  color: #ee8633!important;
+  border: 2px solid #ee8633!important;
+  &:focus {
+    outline: none;
+  }
+
+  &.active {
+    background-color: #ee8633!important;
+    color: #ffffff!important;
+  }
+}
