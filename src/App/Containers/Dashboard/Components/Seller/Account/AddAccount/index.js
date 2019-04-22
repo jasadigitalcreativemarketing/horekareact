@@ -3,13 +3,13 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import FormCorporate from './Corporate';
+import FormStore from './Store';
 import './style.scss';
 
 function Transition(props) {
@@ -25,17 +25,28 @@ class AddAccount extends React.Component {
         corpName: '',
         corpEmail: '',
         corpPhone: '',
+        corpPhonePrefix: '+62',
         corpNPWP: '',
         corpLegality: '',
-        corpCountry: '',
-        corpProvince: '',
-        corpCity: '',
-        corpDistrict: '',
+        corpCountry: 'id',
+        corpProvince: 'jog',
+        corpCity: 'wno',
+        corpDistrict: 'mulo',
         corpZip: '',
         corpAddress: ''
       },
       store: {
-
+        storeName: '',
+        storeEmail: '',
+        storePhone: '',
+        storePhonePrefix: '',
+        storeCountry: 'id',
+        storeProvince: 'jog',
+        storeCity: 'wno',
+        storeDistrict: 'mulo',
+        storeZip: '',
+        storeAddress: '',
+        image: ''
       }
     }
 
@@ -50,11 +61,30 @@ class AddAccount extends React.Component {
   }
 
   handleChange = name => event => {
-    this.setState({
-      corporate: {
-        [name]: event.target.value
-      }
-    });
+    const { register } = this.state;
+    if (register === 'corp') {
+      this.setState({
+        corporate: {
+          ...this.state.corporate,
+          [name]: event.target.value
+        }
+      });
+    } else {
+      this.setState({
+        store: {
+          ...this.state.store,
+          [name]: event.target.value
+        }
+      });
+    }
+  }
+
+  backHandler() {
+
+  }
+
+  addHandler() {
+    
   }
 
   render() {
@@ -91,17 +121,33 @@ class AddAccount extends React.Component {
             </Row>
           </DialogTitle>
           <DialogContent>
-            <FormCorporate 
-              attribute={corporate}
-              handleChange={this.handleChange}
-            />
+            {register === 'corp' ? (
+              <FormCorporate 
+                attribute={corporate}
+                handleChange={this.handleChange}
+              />
+              ) : (
+              <FormStore 
+                attribute={store}
+                handleChange={this.handleChange}
+              />
+              )
+            }
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.props.handler} color="primary">
-              Disagree
+          <DialogActions className="customDialogAct">
+            <Button 
+              className="btnBackCust"
+              onClick={this.props.handler} 
+              color="primary"
+            >
+              Back
             </Button>
-            <Button onClick={this.props.handler} color="primary">
-              Agree
+            <Button 
+              className="btnAddCust"
+              onClick={this.props.handler} 
+              color="primary"
+            >
+              Add
             </Button>
           </DialogActions>
         </Dialog>

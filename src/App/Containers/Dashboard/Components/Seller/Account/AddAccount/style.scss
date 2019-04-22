@@ -12,6 +12,10 @@
   }
 }
 
+.customDialogAct {
+  justify-content: center!important;
+}
+
 .formCorporate {
   label {
     font-weight: bold;
@@ -31,4 +35,18 @@
     background-color: #ee8633!important;
     color: #ffffff!important;
   }
+}
+
+.btnBackCust {
+  background: #cfcfcf!important;
+  color: #ffffff!important;
+  padding: 10px!important;
+  width: 100%!important;
+}
+
+.btnAddCust {
+  background: #5cc7d0!important;
+  color: #ffffff!important;
+  padding: 10px!important;
+  width: 100%!important;
 }
