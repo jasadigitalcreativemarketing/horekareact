@@ -15,6 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
 import AddAccount from './AddAccount';
+import EditAccount from './EditAccount';
 
 
 import './style.scss';
@@ -42,9 +43,11 @@ class Account extends Component {
       init: false,
       lastActive: 10,
       open: false,
+      editAccount: false
     }
 
     this.openModalAdd = this.openModalAdd.bind(this);
+    this.openModalEdit = this.openModalEdit.bind(this);
   }
 
   openModalAdd() {
@@ -53,9 +56,15 @@ class Account extends Component {
     });
   }
 
+  openModalEdit() {
+    this.setState({
+      editAccount: !this.state.editAccount,
+    });
+  }
+
   render() {
-    const { open } = this.state;
-    const { openModalAdd } = this;
+    const { open, editAccount } = this.state;
+    const { openModalAdd, openModalEdit } = this;
 
     return (
       <div className="sellerAccount">
@@ -88,6 +97,7 @@ class Account extends Component {
               Add Account
             </Button>
             <AddAccount open={open} handler={openModalAdd}/>
+            <EditAccount open={editAccount} handler={openModalEdit} />
           </div>
 
           <div className="col pl-0 buttonDelete">
@@ -127,7 +137,12 @@ class Account extends Component {
                   <TableCell className="customCell" align="left">{row.address}</TableCell>
                   <TableCell className="customCell" align="left">{row.email}</TableCell>
                   <TableCell className="customCell" align="left">
-                    <Button variant="contained" size="small" className="customButton">
+                    <Button 
+                      variant="contained" 
+                      size="small" 
+                      className="customButton"
+                      onClick={openModalEdit}
+                    >
                       Edit
                     </Button>
                   </TableCell>
