@@ -8,6 +8,8 @@ import Navigation from './Components/Navigation';
 import SellerAccount from './Components/Seller/Account';
 import SellerProduct from './Components/Seller/Product';
 import SellerInventory from './Components/Seller/Inventory';
+import SellerUser from './Components/Seller/User';
+import ProductView from './Components/Seller/Product/View';
 
 import './style.scss';
 
@@ -65,9 +67,11 @@ class Dashboard extends Component {
 
             <Row className="main-dashboard p-4">
               <Col>
-                <Route path={`${match.url}/seller/account`} render={ () => <SellerAccount />} />
-                <Route path={`${match.url}/seller/product`} render={ () => <SellerProduct />} />
-                <Route path={`${match.url}/seller/inventory`} render={ () => <SellerInventory />} />
+                <Route path={`${match.url}/seller/account`} component={SellerAccount} />
+                <Route path={`${match.url}/seller/product`} exact component={SellerProduct} />
+                <Route path={`${match.url}/seller/product/view/:id`} component={ProductView} />
+                <Route path={`${match.url}/seller/inventory`} component={SellerInventory} />
+                <Route path={`${match.url}/seller/user`} component={SellerUser}/>
                 <Route
                   exact
                   path={match.path}

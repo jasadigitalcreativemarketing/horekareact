@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -40,10 +39,6 @@ class Inventory extends Component {
       init: false,
       lastActive: 10
     }
-  }
-
-  componentWillReceiveProps(newProps) {
-    console.log('newProps',newProps);
   }
 
   render() {

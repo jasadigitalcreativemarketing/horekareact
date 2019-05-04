@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,14 +7,10 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
-import { withRouter } from 'react-router';
-import compose from 'recompose/compose';
 import { Search } from '@material-ui/icons';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
 import './style.scss';
-
 
 let id = 0;
 function createData(checked,image, name, ptName, address, email, action) {
@@ -25,34 +19,27 @@ function createData(checked,image, name, ptName, address, email, action) {
 }
 
 const rows = [
-  createData(true,'https://www.chainstoreage.com/wp-content/uploads/2018/11/AdoreMe_store.jpg','Abadi Jaya', 'PT.Mugi Berkah', 'Jl.Menuju Kesuksesan No.1 Tebet, Jakarta Selatan', 'abadi@gmail.com', 'button'),
-  createData(true,'https://www.chainstoreage.com/wp-content/uploads/2018/11/AdoreMe_store.jpg','Makmur Maning', 'PT.Untung Selalu', 'Jl.Menuju Kesuksesan No.1 Tebet, Jakarta Selatan', 'su@gmail.com', 'button'),
-  createData(true,'https://www.chainstoreage.com/wp-content/uploads/2018/11/AdoreMe_store.jpg','Abadi Jaya', 'PT.Mugi Berkah', 'Jl.Menuju Kesuksesan No.1 Tebet, Jakarta Selatan', 'abadi@gmail.com', 'button'),
-  createData(true,'https://www.chainstoreage.com/wp-content/uploads/2018/11/AdoreMe_store.jpg','Makmur Maning', 'PT.Untung Selalu', 'Jl.Menuju Kesuksesan No.1 Tebet, Jakarta Selatan', 'su@gmail.com', 'button'),
-  createData(true,'https://www.chainstoreage.com/wp-content/uploads/2018/11/AdoreMe_store.jpg','Makmur Maning', 'PT.Untung Selalu', 'Jl.Menuju Kesuksesan No.1 Tebet, Jakarta Selatan', 'su@gmail.com', 'button'),
-  createData(true,'https://www.chainstoreage.com/wp-content/uploads/2018/11/AdoreMe_store.jpg','Makmur Maning', 'PT.Untung Selalu', 'Jl.Menuju Kesuksesan No.1 Tebet, Jakarta Selatan', 'su@gmail.com', 'button'),
+  createData(true,'https://res.cloudinary.com/dk0z4ums3/image/upload/v1522914788/attached_image/manfaat-wortel-bagi-kesehatan-alodokter.jpg','Wortel Oke', 'Agriculture & Food', 'Lorem ipsum is simply dummy text of the printing and typesetting industry', 'Rp.6000', 'button'),
+  createData(true,'https://res.cloudinary.com/dk0z4ums3/image/upload/v1533004927/attached_image/mengolah-daging-sapi-dengan-benar-alodokter.jpg','Daging Sapi Jaya', 'Agriculture & Food', 'Lorem ipsum is simply dummy text of the printing and typesetting industry', 'Rp.16000', 'button'),
+  createData(true,'http://www.tuquh.com/image/cache/data/Minuman/2410080002074-500x500.jpg','Aqua Box 600ml', 'Agriculture & Food', 'Lorem ipsum is simply dummy text of the printing and typesetting industry', 'Rp.60000', 'button'),
+  createData(true,'http://shop.mandirimco.co.id/web/image/product.template/5271/image','Aqua 600ml', 'Agriculture & Food', 'Lorem ipsum is simply dummy text of the printing and typesetting industry', 'Rp.6000', 'button'),
 ];
 
-class Product extends Component {
+class ViewProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
       init: false,
-      lastActive: 10
+      lastActive: 10,
+      gramation: 10
     }
-    this.viewProduct = this.viewProduct.bind(this);
-  }
-
-  viewProduct(id) {
-    const { history, match } = this.props;
-    history.replace(`${match.url}/view/${id}`);
   }
 
   render() {
-    const { viewProduct } = this;
+
     return (
-      <div className="sellerProduct">
-        <h5 className="title">Manage Seller - Product Seller</h5>
+      <div className="sellerInventory">
+        <h5 className="title">Manage Seller - Product Seller - Detail Product Seller</h5>
         <div className="row row-action mb-3">
           <div className="col-4 position-relative">
             <Search className="iconSearch"/>
@@ -65,7 +52,19 @@ class Product extends Component {
               value={this.state.lastActive}
               onChange={(e) => this.setState({lastActive: e.target.value})}
             >
-              <MenuItem value={10}>Last Active</MenuItem>
+              <MenuItem value={10}>All Category</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </div>
+
+          <div className="col-2 lastActive pl-0">
+            <Select
+              className="customSelect"
+              value={this.state.gramation}
+              onChange={(e) => this.setState({gramation: e.target.value})}
+            >
+              <MenuItem value={10}>Gramation</MenuItem>
               <MenuItem value={20}>Twenty</MenuItem>
               <MenuItem value={30}>Thirty</MenuItem>
             </Select>
@@ -78,15 +77,16 @@ class Product extends Component {
                 <TableCell className="customHead"></TableCell>
                 <TableCell className="customHead" align="left">No</TableCell>
                 <TableCell className="customHead" align="left">Photo</TableCell>
-                <TableCell className="customHead" align="left">Store Name</TableCell>
-                <TableCell className="customHead" align="left">PT Name</TableCell>
-                <TableCell className="customHead" align="left">Address</TableCell>
-                <TableCell className="customHead" align="left">Email</TableCell>
+                <TableCell className="customHead" align="left">Name</TableCell>
+                <TableCell className="customHead" align="left">Category</TableCell>
+                <TableCell className="customHead" align="left">Product Details</TableCell>
+                <TableCell className="customHead" align="left">Price</TableCell>
+                <TableCell className="customHead" align="left"></TableCell>
                 <TableCell className="customHead" align="left"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row,index) => (
+              {rows.map(row => (
                 <TableRow key={row.id}>
                   <TableCell className="customCell" align="center">
                     <Checkbox color="primary"/>
@@ -101,14 +101,14 @@ class Product extends Component {
                   <TableCell className="customCell" align="left">{row.ptName}</TableCell>
                   <TableCell className="customCell" align="left">{row.address}</TableCell>
                   <TableCell className="customCell" align="left">{row.email}</TableCell>
-                  <TableCell className="customCell" align="left">
-                    <Button 
-                      variant="contained" 
-                      size="small" 
-                      className="customButton"
-                      onClick={() => viewProduct(index)}
-                    >
-                      View Products
+                  <TableCell className="customCell btn-edit" align="left">
+                    <Button variant="contained" size="small" className="customButton edit">
+                      Edit
+                    </Button>
+                  </TableCell>
+                  <TableCell className="customCell btn-details" align="left">
+                    <Button variant="contained" size="small" className="customButton details">
+                      View Details
                     </Button>
                   </TableCell>
                 </TableRow>
@@ -121,10 +121,4 @@ class Product extends Component {
   }
 }
 
-Product.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default compose(
-  withRouter,
-)(Product);
+export default ViewProduct;
